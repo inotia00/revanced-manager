@@ -83,7 +83,7 @@ class _AppSelectorViewState extends State<AppSelectorView> {
                         ),
                       ),
                     )
-                  : model.allApps.isEmpty
+                  : model.apps.isEmpty
                       ? const AppSkeletonLoader()
                       : Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12.0)

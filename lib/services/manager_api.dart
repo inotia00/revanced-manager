@@ -43,21 +43,12 @@ class ManagerAPI {
   String defaultApiUrl = 'https://api.revanced.app/';
   String defaultRepoUrl = 'https://api.github.com';
   String defaultPatcherRepo = 'revanced/revanced-patcher';
-  String defaultPatchesRepo = 'revanced/revanced-patches';
-  String defaultIntegrationsRepo = 'revanced/revanced-integrations';
+  String defaultPatchesRepo = 'inotia00/revanced-patches';
+  String defaultIntegrationsRepo = 'inotia00/revanced-integrations';
   String defaultCliRepo = 'revanced/revanced-cli';
-  String defaultManagerRepo = 'revanced/revanced-manager';
+  String defaultManagerRepo = 'inotia00/revanced-manager';
   String? patchesVersion = '';
   String? integrationsVersion = '';
-
-  bool isDefaultPatchesRepo() {
-    return getPatchesRepo().toLowerCase() == 'revanced/revanced-patches';
-  }
-
-  bool isDefaultIntegrationsRepo() {
-    return getIntegrationsRepo().toLowerCase() ==
-        'revanced/revanced-integrations';
-  }
 
   Future<void> initialize() async {
     _prefs = await SharedPreferences.getInstance();
@@ -420,75 +411,56 @@ class ManagerAPI {
   }
 
   Future<File?> downloadManager() async {
-    return await _revancedAPI.getLatestReleaseFile(
+    return await _githubAPI.getLatestReleaseFile(
       '.apk',
       defaultManagerRepo,
     );
   }
 
   Future<String?> getLatestPatchesReleaseTime() async {
-    if (isDefaultPatchesRepo()) {
-      return await _revancedAPI.getLatestReleaseTime(
-        '.json',
-        defaultPatchesRepo,
-      );
+    final release = await _githubAPI.getLatestPatchesRelease(getPatchesRepo());
+    if (release != null) {
+      final DateTime timestamp = DateTime.parse(release['created_at'] as String);
+      return format(timestamp, locale: 'en_short');
     } else {
-      final release =
-          await _githubAPI.getLatestPatchesRelease(getPatchesRepo());
-      if (release != null) {
-        final DateTime timestamp =
-            DateTime.parse(release['created_at'] as String);
-        return format(timestamp, locale: 'en_short');
-      } else {
-        return null;
-      }
+      return null;
     }
   }
 
   Future<String?> getLatestManagerReleaseTime() async {
-    return await _revancedAPI.getLatestReleaseTime(
-      '.apk',
-      defaultManagerRepo,
-    );
+    final release = await _githubAPI.getLatestManagerRelease(defaultManagerRepo);
+    if (release != null) {
+      final DateTime timestamp = DateTime.parse(release['created_at'] as String);
+      return format(timestamp, locale: 'en_short');
+    } else {
+      return null;
+    }
   }
 
   Future<String?> getLatestManagerVersion() async {
-    return await _revancedAPI.getLatestReleaseVersion(
-      '.apk',
-      defaultManagerRepo,
-    );
+    final release = await _githubAPI.getLatestRelease(defaultManagerRepo);
+    if (release != null) {
+      return release['tag_name'];
+    } else {
+      return null;
+    }
   }
 
   Future<String?> getLatestIntegrationsVersion() async {
-    if (isDefaultIntegrationsRepo()) {
-      return await _revancedAPI.getLatestReleaseVersion(
-        '.apk',
-        defaultIntegrationsRepo,
-      );
+    final release = await _githubAPI.getLatestRelease(getIntegrationsRepo());
+    if (release != null) {
+      return release['tag_name'];
     } else {
-      final release = await _githubAPI.getLatestRelease(getIntegrationsRepo());
-      if (release != null) {
-        return release['tag_name'];
-      } else {
-        return null;
-      }
+      return null;
     }
   }
 
   Future<String?> getLatestPatchesVersion() async {
-    if (isDefaultPatchesRepo()) {
-      return await _revancedAPI.getLatestReleaseVersion(
-        '.json',
-        defaultPatchesRepo,
-      );
+    final release = await _githubAPI.getLatestRelease(getPatchesRepo());
+    if (release != null) {
+      return release['tag_name'];
     } else {
-      final release =
-          await _githubAPI.getLatestPatchesRelease(getPatchesRepo());
-      if (release != null) {
-        return release['tag_name'];
-      } else {
-        return null;
-      }
+      return null;
     }
   }
 

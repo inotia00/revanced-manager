@@ -25,9 +25,6 @@ class PatchesSelectorViewModel extends BaseViewModel {
       locator<PatcherViewModel>().selectedPatches;
   PatchedApplication? selectedApp = locator<PatcherViewModel>().selectedApp;
   String? patchesVersion = '';
-  bool isDefaultPatchesRepo() {
-    return _managerAPI.getPatchesRepo() == 'revanced/revanced-patches';
-  }
 
   Future<void> initialize() async {
     getPatchesVersion().whenComplete(() => notifyListeners());

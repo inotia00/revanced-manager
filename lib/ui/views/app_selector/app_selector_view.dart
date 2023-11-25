@@ -3,7 +3,6 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:revanced_manager/ui/views/app_selector/app_selector_viewmodel.dart';
 import 'package:revanced_manager/ui/widgets/appSelectorView/app_skeleton_loader.dart';
 import 'package:revanced_manager/ui/widgets/appSelectorView/installed_app_item.dart';
-import 'package:revanced_manager/ui/widgets/appSelectorView/not_installed_app_item.dart';
 import 'package:revanced_manager/ui/widgets/shared/search_bar.dart';
 import 'package:stacked/stacked.dart' hide SkeletonLoader;
 
@@ -115,24 +114,6 @@ class _AppSelectorViewState extends State<AppSelectorView> {
                                       onLinkTap: () =>
                                           model.searchSuggestedVersionOnWeb(
                                         packageName: app.packageName,
-                                      ),
-                                    ),
-                                  )
-                                  ,
-                              ...model
-                                  .getFilteredAppsNames(_query)
-                                  .map(
-                                    (app) => NotInstalledAppItem(
-                                      name: app,
-                                      patchesCount: model.patchesCount(app),
-                                      suggestedVersion:
-                                          model.getSuggestedVersion(app),
-                                      onTap: () {
-                                        model.showDownloadToast();
-                                      },
-                                      onLinkTap: () =>
-                                          model.searchSuggestedVersionOnWeb(
-                                        packageName: app,
                                       ),
                                     ),
                                   )

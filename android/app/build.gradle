@@ -47,7 +47,7 @@ android {
         release {
             shrinkResources false
             minifyEnabled false
-            resValue "string", "app_name", "ReVanced Manager"
+            resValue "string", "app_name", "RVX Manager"
             signingConfig signingConfigs.debug
             ndk {
                 abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
@@ -56,7 +56,7 @@ android {
         debug {
             shrinkResources false
             minifyEnabled false
-            resValue "string", "app_name", "ReVanced Manager Debug"
+            resValue "string", "app_name", "RVX Manager Debug"
             applicationIdSuffix ".debug"
             signingConfig signingConfigs.debug
             ndk {
@@ -66,7 +66,7 @@ android {
         profile {
             shrinkResources false
             minifyEnabled false
-            resValue "string", "app_name", "ReVanced Manager Profile"
+            resValue "string", "app_name", "RVX Manager Profile"
             applicationIdSuffix ".profile"
             signingConfig signingConfigs.debug
             ndk {

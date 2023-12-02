@@ -149,7 +149,7 @@ class HomeViewModel extends BaseViewModel {
 
   Future<File?> downloadManager() async {
     try {
-      final response = await _revancedAPI.downloadManager();
+      final response = await _managerAPI.downloadManager();
       final bytes = await response!.readAsBytes();
       final tempDir = await getTemporaryDirectory();
       final tempFile = File('${tempDir.path}/revanced-manager.apk');

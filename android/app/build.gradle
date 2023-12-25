@@ -50,7 +50,7 @@ android {
             resValue "string", "app_name", "RVX Manager"
             signingConfig signingConfigs.debug
             ndk {
-                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+                abiFilters 'arm64-v8a'
             }
         }
         debug {
@@ -60,7 +60,7 @@ android {
             applicationIdSuffix ".debug"
             signingConfig signingConfigs.debug
             ndk {
-                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+                abiFilters 'arm64-v8a'
             }
         }
         profile {
@@ -70,7 +70,7 @@ android {
             applicationIdSuffix ".profile"
             signingConfig signingConfigs.debug
             ndk {
-                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+                abiFilters 'arm64-v8a'
             }
         }
     }

@@ -79,6 +79,7 @@ class MainActivity : FlutterActivity() {
                     val cacheDirPath = call.argument<String>("cacheDirPath")
                     val keyStoreFilePath = call.argument<String>("keyStoreFilePath")
                     val keystorePassword = call.argument<String>("keystorePassword")
+                    val ripLibs = call.argument<Boolean>("ripLibs")
 
                     if (
                         originalFilePath != null &&
@@ -90,7 +91,8 @@ class MainActivity : FlutterActivity() {
                         options != null &&
                         cacheDirPath != null &&
                         keyStoreFilePath != null &&
-                        keystorePassword != null
+                        keystorePassword != null &&
+                        ripLibs != null
                     ) {
                         cancel = false
                         runPatcher(
@@ -104,7 +106,8 @@ class MainActivity : FlutterActivity() {
                             options,
                             cacheDirPath,
                             keyStoreFilePath,
-                            keystorePassword
+                            keystorePassword,
+                            ripLibs
                         )
                     } else result.notImplemented()
                 }
@@ -227,7 +230,8 @@ class MainActivity : FlutterActivity() {
         options: Map<String, Map<String, Any>>,
         cacheDirPath: String,
         keyStoreFilePath: String,
-        keystorePassword: String
+        keystorePassword: String,
+        ripLibs: Boolean
     ) {
         val originalFile = File(originalFilePath)
         val inputFile = File(inputFilePath)
@@ -388,8 +392,15 @@ class MainActivity : FlutterActivity() {
                             ZipAligner::getEntryAlignment
                         )
                     }
+
+                    val inputZipFile = ZipFile(inputFile)
+                    if (ripLibs) {
+                        inputZipFile.entries.removeIf { entry ->
+                            arrayOf("armeabi-v7a", "x86", "x86_64").any { entry.fileName.startsWith("lib/$it") }
+                        }
+                    }
                     file.copyEntriesFromFileAligned(
-                        ZipFile(inputFile),
+                        inputZipFile,
                         ZipAligner::getEntryAlignment
                     )
                 }

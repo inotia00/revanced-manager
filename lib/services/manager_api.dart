@@ -243,6 +243,14 @@ class ManagerAPI {
     await _prefs.setBool('universalPatchesEnabled', value);
   }
 
+  bool isRipLibsEnabled() {
+    return _prefs.getBool('RipLibsEnabled') ?? false;
+  }
+
+  Future<void> enableRipLibsStatus(bool value) async {
+    await _prefs.setBool('RipLibsEnabled', value);
+  }
+
   bool isVersionCompatibilityCheckEnabled() {
     return _prefs.getBool('versionCompatibilityCheckEnabled') ?? true;
   }

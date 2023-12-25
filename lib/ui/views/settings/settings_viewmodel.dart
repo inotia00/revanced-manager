@@ -126,6 +126,15 @@ class SettingsViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  bool isRipLibsEnabled() {
+    return _managerAPI.isRipLibsEnabled();
+  }
+
+  void showRipLibs(bool value) {
+    _managerAPI.enableRipLibsStatus(value);
+    notifyListeners();
+  }
+
   bool isVersionCompatibilityCheckEnabled() {
     return _managerAPI.isVersionCompatibilityCheckEnabled();
   }

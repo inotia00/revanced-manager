@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
-import 'package:revanced_manager/ui/views/patcher/patcher_viewmodel.dart';
-import 'package:revanced_manager/ui/views/patches_selector/patches_selector_viewmodel.dart';
 import 'package:revanced_manager/ui/views/settings/settings_viewmodel.dart';
 
 class SRipLibs extends StatefulWidget {
@@ -12,8 +10,6 @@ class SRipLibs extends StatefulWidget {
 }
 
 final _settingsViewModel = SettingsViewModel();
-final _patchesSelectorViewModel = PatchesSelectorViewModel();
-final _patcherViewModel = PatcherViewModel();
 
 class _SRipLibsState extends State<SRipLibs> {
   @override
@@ -36,12 +32,6 @@ class _SRipLibsState extends State<SRipLibs> {
         setState(() {
           _settingsViewModel.showRipLibs(value);
         });
-        if (!value) {
-          _patcherViewModel.selectedPatches
-              .removeWhere((patch) => patch.compatiblePackages.isEmpty);
-          _patchesSelectorViewModel.selectedPatches
-              .removeWhere((patch) => patch.compatiblePackages.isEmpty);
-        }
       },
     );
   }

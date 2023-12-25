@@ -44,6 +44,7 @@ class AppSelectorViewModel extends BaseViewModel {
           .length
           .compareTo(_patcherAPI.getFilteredPatches(a.packageName).length),
     );
+    noApps = apps.isEmpty;
     getAllApps();
     notifyListeners();
   }
@@ -54,7 +55,6 @@ class AppSelectorViewModel extends BaseViewModel {
         .toSet()
         .where((name) => !apps.any((app) => app.packageName == name))
         .toList();
-    noApps = allApps.isEmpty;
     return allApps;
   }
 

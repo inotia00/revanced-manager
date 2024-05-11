@@ -206,7 +206,7 @@
     "ripLibsLabel": "Remove unused library",
     "ripLibsHint": "Compile only arm64-v8a architecture",
     "preReleasesLabel": "Use pre-release",
-    "preReleasesHint": "Use the pre-release versions of patches and integrations",
+    "preReleasesHint": "Use the pre-release versions of patches and integrations if ahead of the stable version",
     "preReleasesDialogText": "Use pre-release is for development purposes and may cause unexpected issues.",
     "preReleasesDialogText2": "It may not be compatible with the current version of ReVanced Manager and may cause patching errors.\n\nDo you want to proceed anyways?",
     "versionCompatibilityCheckLabel": "Version compatibility check",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:revanced_manager/gen/strings.g.dart';
 import 'package:revanced_manager/models/patch.dart';
 import 'package:revanced_manager/ui/widgets/shared/custom_card.dart';
@@ -447,9 +448,7 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                     t.patchOptionsView.customValue,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSecondaryContainer,
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
                     ),
                   ),
                 ),
@@ -503,31 +502,37 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                   ];
                 },
                 onSelected: (String selection) async {
-                  switch (selection) {
-                    case 'patchOptionsView.selectFilePath':
-                      final String? result = await FlutterFileDialog.pickFile();
+                  if (selection == t.patchOptionsView.selectFilePath) {
+                    final String? result = await FlutterFileDialog.pickFile();
+                    if (await Permission.manageExternalStorage
+                        .request()
+                        .isGranted) {
                       if (result != null) {
                         controller.text = result;
                         widget.onChanged(controller.text);
                       }
-                      break;
-                    case 'patchOptionsView.selectFolder':
-                      final DirectoryLocation? result =
-                          await FlutterFileDialog.pickDirectory();
+                    }
+                  } else if (selection == t.patchOptionsView.selectFolder) {
+                    final DirectoryLocation? result =
+                        await FlutterFileDialog.pickDirectory();
+                    if (await Permission.manageExternalStorage
+                        .request()
+                        .isGranted) {
                       if (result != null) {
                         controller.text = result.toString();
                         widget.onChanged(controller.text);
                       }
-                      break;
-                    case 'remove':
-                      widget.removeValue!();
-                      break;
+                    }
+                  } else if (selection == t.remove) {
+                    widget.removeValue!();
                   }
                 },
               ),
               hintStyle: TextStyle(
                 fontSize: 14,
-                color: Theme.of(context).colorScheme.onSecondaryContainer,
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSecondaryContainer,
               ),
             ),
             onChanged: (String value) {

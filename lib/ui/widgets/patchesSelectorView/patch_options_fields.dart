@@ -1,6 +1,6 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:revanced_manager/gen/strings.g.dart';
 import 'package:revanced_manager/models/patch.dart';
@@ -502,29 +502,44 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                   ];
                 },
                 onSelected: (String selection) async {
-                  if (selection == t.patchOptionsView.selectFilePath) {
-                    final String? result = await FlutterFileDialog.pickFile();
-                    if (await Permission.manageExternalStorage
-                        .request()
-                        .isGranted) {
-                      if (result != null) {
-                        controller.text = result;
-                        widget.onChanged(controller.text);
+                  // manageExternalStorage permission is required for file/folder selection
+                  // otherwise, the app will not complain, but the patches will error out
+                  // the same way as if the user selected an empty file/folder
+                  final Map<String, dynamic> availableActions = {
+                    t.patchOptionsView.selectFilePath: () async {
+                      final FilePickerResult? result =
+                          await FilePicker.platform.pickFiles();
+                      final permission =
+                          await Permission.manageExternalStorage.request();
+                      if (!permission.isGranted) {
+                        return;
                       }
-                    }
-                  } else if (selection == t.patchOptionsView.selectFolder) {
-                    final DirectoryLocation? result =
-                        await FlutterFileDialog.pickDirectory();
-                    if (await Permission.manageExternalStorage
-                        .request()
-                        .isGranted) {
-                      if (result != null) {
-                        controller.text = result.toString();
-                        widget.onChanged(controller.text);
+                      if (result == null) {
+                        return;
                       }
-                    }
-                  } else if (selection == t.remove) {
-                    widget.removeValue!();
+                      controller.text = result.files.single.path!;
+                      widget.onChanged(controller.text);
+                    },
+                    t.patchOptionsView.selectFolder: () async {
+                      final permission =
+                          await Permission.manageExternalStorage.request();
+                      if (!permission.isGranted) {
+                        return;
+                      }
+                      final String? result =
+                          await FilePicker.platform.getDirectoryPath();
+                      if (result == null) {
+                        return;
+                      }
+                      controller.text = result;
+                      widget.onChanged(controller.text);
+                    },
+                    t.remove: () {
+                      widget.removeValue!();
+                    },
+                  };
+                  if (availableActions.containsKey(selection)) {
+                    await availableActions[selection]!();
                   }
                 },
               ),

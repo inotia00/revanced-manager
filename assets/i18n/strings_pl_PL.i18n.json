@@ -20,7 +20,7 @@
   "showUpdateButton": "Pokaż aktualizację",
   "navigationView": {
     "dashboardTab": "Panel główny",
-    "patcherTab": "Program łatający",
+    "patcherTab": "Łatanie",
     "settingsTab": "Ustawienia"
   },
   "homeView": {
@@ -59,12 +59,12 @@
   "latestCommitCard": {
     "loadingLabel": "Ładowanie...",
     "timeagoLabel": "${time} temu",
-    "patcherLabel": "Program łatający: ",
+    "patcherLabel": "Łatanie: ",
     "managerLabel": "Menedżer: ",
     "updateButton": "Zaktualizuj Menedżera"
   },
   "patcherView": {
-    "widgetTitle": "Program łatający",
+    "widgetTitle": "Łatanie",
     "patchButton": "Łataj",
     "armv7WarningDialogText": "Łatanie na urządzeniach ARMv7 nie jest jeszcze wspierane i może się nie udać.\nKontynuować mimo to?",
     "removedPatchesWarningDialogText": "Następujące łatki zostały usunięte od ostatniego użycia.\n\n${patches}\n\nKontynuować mimo to?",
@@ -154,7 +154,7 @@
     "exportApkButtonTooltip": "Wyeksportuj załatane APK",
     "exportLogButtonTooltip": "Wyeksportuj logi",
     "screenshotDetected": "Wykryto zrzut ekranu. Jeżeli próbujesz udostępnić logi, proszę udostępnić kopię tekstu.\n\nSkopiować logi?",
-    "copiedToClipboard": "Logi skopiowane",
+    "copiedToClipboard": "Skopiowano logi do schowka",
     "noExit": "Instalator jest nadal uruchomiony, nie można zakończyć jego działania..."
   },
   "settingsView": {
@@ -181,7 +181,7 @@
     "useAlternativeSourcesHint": "Używaj alternatywnych źródeł dla Łatek ReVanced i Integracji ReVanced zamiast API",
     "sourcesResetDialogTitle": "Zresetuj",
     "sourcesResetDialogText": "Czy na pewno chcesz przywrócić źródła niestandardowe do ich wartości domyślnych?",
-    "apiURLResetDialogText": "Czy jesteś pewien, że chcesz przywrócić wszystkie adresy API do domyślnych wartości?",
+    "apiURLResetDialogText": "Czy na pewno chcesz przywrócić wszystkie adresy API do domyślnych wartości?",
     "sourcesUpdateNote": "Uwaga: To automatycznie pobierze Łatki ReVanced i Integracje ReVanced z alternatywnych źródeł.\n\nTo połączy cię z alternatywnym źródłem.",
     "apiURLLabel": "Adres API",
     "apiURLHint": "Skonfiguruj adres API Menedżera ReVanced",
@@ -203,12 +203,18 @@
     "showUpdateDialogHint": "Pokaż powiadomienie, gdy nowa wersja jest dostępna",
     "universalPatchesLabel": "Pokaż uniwersalne łatki",
     "universalPatchesHint": "Wyświetl wszystkie aplikacje i uniwersalne łatki (może spowolnić wczytywane listy aplikacji)",
+    "ripLibsLabel": "Usuń nieużywaną bibliotekę",
+    "ripLibsHint": "Kompiluj tylko architekturę arm64-v8a",
+    "preReleasesLabel": "Przedpremierowe wersje",
+    "preReleasesHint": "Korzystaj z przedpremierowych wersji łatek i integracji, jeśli są nowsze niż stabilna wersja.",
+    "preReleasesDialogText": "Przedpremierowe wersje są udostępnione programistom do testów i mogą powodować nieoczekiwane problemy...",
+    "preReleasesDialogText2": "Mogą one nie być kompatybilne z aktualną wersją ReVanced Manager, co może powodować błędy podczas łatania.\n\nCzy mimo to chcesz kontynuować?",
     "versionCompatibilityCheckLabel": "Sprawdzanie zgodności wersji",
     "versionCompatibilityCheckHint": "Zapobiegaj wybieraniu łatek, które nie są kompatybilne z wybraną wersją aplikacji",
     "requireSuggestedAppVersionLabel": "Wymagaj sugerowanej wersji aplikacji",
     "requireSuggestedAppVersionHint": "Zapobiegaj wybieraniu aplikacji z wersją, która nie jest sugerowana",
     "requireSuggestedAppVersionDialogText": "Wybranie wersji aplikacji, która nie jest sugerowana może spowodować problemy.\n\nCzy mimo to chcesz kontynuować?",
-    "aboutLabel": "O Aplikacji",
+    "aboutLabel": "Informacje",
     "snackbarMessage": "Skopiowano do schowka",
     "restartAppForChanges": "Uruchom ponownie aplikację, aby zastosować zmiany",
     "deleteTempDirLabel": "Usuń pliki tymczasowe",

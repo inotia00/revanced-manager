@@ -78,6 +78,31 @@ class GithubAPI {
     }
   }
 
+  Future<File?> getLatestReleaseFile(
+    String extension,
+    String repoName,
+  ) async {
+    try {
+      final Map<String, dynamic>? release = await getLatestRelease(repoName);
+      if (release != null) {
+        final Map<String, dynamic>? asset =
+            (release['assets'] as List<dynamic>).firstWhereOrNull(
+          (asset) => (asset['name'] as String).endsWith(extension),
+        );
+        if (asset != null) {
+          return await _downloadManager.getSingleFile(
+            asset['browser_download_url'],
+          );
+        }
+      }
+    } on Exception catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return null;
+  }
+
   Future<File?> getReleaseFile(
     String extension,
     String repoName,

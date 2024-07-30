@@ -131,7 +131,7 @@ class RevancedAPI {
   Future<File?> downloadManager() async {
     final Map<String, dynamic>? release = await _getLatestRelease(
       '.apk',
-      'revanced/revanced-manager',
+      'inotia00/revanced-manager',
     );
     File? outputFile;
     await for (final result in _downloadManager.getFileStream(

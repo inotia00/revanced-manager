@@ -37,7 +37,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        applicationId "app.revanced.manager.flutter"
+        applicationId "app.rvx.manager.flutter"
         minSdk 26
         targetSdk 34
         versionCode flutterVersionCode.toInteger()

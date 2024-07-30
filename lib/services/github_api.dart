@@ -103,6 +103,76 @@ class GithubAPI {
     return null;
   }
 
+  Future<Map<String, dynamic>?> getLatestReleaseWithPreReleases(String repoName) async {
+    /*
+    * Loop through all releases (including pre-releases) and return the latest
+    */
+    try {
+      final Response response = await _dio.get('/repos/$repoName/releases');
+      final List<dynamic> releases = response.data;
+
+      if (releases.isEmpty) return getLatestRelease(repoName);
+
+      Map<String, dynamic>? latestRelease;
+      DateTime latestReleaseDate = DateTime.fromMillisecondsSinceEpoch(0);
+
+      for (final release in releases) { 
+        final DateTime releaseDate = DateTime.parse(release['published_at']);
+        if (releaseDate.isAfter(latestReleaseDate)) {
+          latestReleaseDate = releaseDate;
+          latestRelease = release;
+        }
+      }
+
+      if (latestRelease == null) return getLatestRelease(repoName);
+
+      return latestRelease;
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      return getLatestRelease(repoName);
+    }
+  }
+
+  Future<Map<String, dynamic>?> getLatestManagerRelease(
+    String repoName,
+  ) async {
+    try {
+      final response = await _dioGetSynchronously(
+        '/repos/$repoName/releases?per_page=10',
+      );
+      final Map<String, dynamic> releases = response.data[0];
+      int updates = 0;
+      final String currentVersion =
+          await _managerAPI.getCurrentManagerVersion();
+      while (response.data[updates]['tag_name'] != currentVersion) {
+        updates++;
+      }
+      for (int i = 1; i < updates; i++) {
+        if (response.data[i]['prerelease']) {
+          continue;
+        }
+        releases.update(
+          'body',
+          (value) =>
+              value +
+              '\n' +
+              '# ' +
+              response.data[i]['tag_name'] +
+              '\n' +
+              response.data[i]['body'],
+        );
+      }
+      return releases;
+    } on Exception catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      return null;
+    }
+  }
+
   Future<File?> getReleaseFile(
     String extension,
     String repoName,

@@ -485,8 +485,9 @@ class HomeViewModel extends BaseViewModel {
   }
 
   Future<String?> getLatestPatchesChangelog() async {
-    final release =
-        await _githubAPI.getLatestRelease(_managerAPI.getPatchesRepo());
+    final release = _managerAPI.isPreReleasesEnabled()
+        ? await _githubAPI.getLatestReleaseWithPreReleases(_managerAPI.getPatchesRepo())
+        : await _githubAPI.getLatestRelease(_managerAPI.getPatchesRepo());
     return release?['body'];
   }
 

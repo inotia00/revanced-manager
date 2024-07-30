@@ -6,6 +6,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:injectable/injectable.dart';
 import 'package:revanced_manager/app/app.locator.dart';
 import 'package:revanced_manager/services/manager_api.dart';
+import 'package:revanced_manager/services/toast.dart';
 
 @lazySingleton
 class DownloadManager {
@@ -41,6 +42,7 @@ class DownloadManager {
     }
 
     dio.interceptors.add(DioCacheInterceptor(options: _cacheOptions));
+    dio.interceptors.add(_ShowToastInterceptor());
     return dio;
   }
 
@@ -71,5 +73,35 @@ class DownloadManager {
         'User-Agent': _userAgent,
       },
     );
+  }
+}
+
+class _ShowToastInterceptor extends Interceptor {
+  final Toast _toast = locator<Toast>();
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) {
+    final response = err.response;
+    if (response != null) {
+      // Check if the error is rate limit
+      if (response.headers['x-ratelimit-remaining']?[0] == '0') {
+        final resetUnixTime =
+            int.parse(response.headers['x-ratelimit-reset']?[0] ?? '0');
+        final resetDateTime =
+            DateTime.fromMillisecondsSinceEpoch(resetUnixTime * 1000);
+        final remainingMinutes =
+            resetDateTime.difference(DateTime.now()).inMinutes;
+        _toast.showBottom(
+            'GitHub API rate limit exceeded. Change the network or wait $remainingMinutes minutes.');
+      } else {
+        _toast.showBottom(
+            '${response.statusCode} ${response.statusMessage}: ${err.requestOptions.uri}');
+      }
+    } else {
+      // The "DioException" text is unnecessary for users, so remove it to simplify
+      _toast.showBottom(err.requestOptions.uri.host +
+          err.toString().replaceFirst('DioException', ''));
+    }
+    super.onError(err, handler);
   }
 }

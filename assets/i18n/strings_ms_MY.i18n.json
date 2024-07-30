@@ -95,7 +95,7 @@
     "installButton": "Pasang",
     "uninstallButton": "Nyah pasang",
     "rootDialogTitle": "Ralat",
-    "rootDialogText": "Aplikasi telah dipasang dengan kebenaran superuser, tetapi ReVanced Manager sekarang tidak ada kebeneran.\nMinta membenarkan kebenaran superuser dahulu.",
+    "rootDialogText": "Aplikasi telah dipasang dengan kebenaran superuser, tetapi RVX Manager sekarang tidak ada kebeneran.\nMinta membenarkan kebenaran superuser dahulu.",
     "packageNameLabel": "Nama pakej",
     "installTypeLabel": "Jenis Pemasangan",
     "patchedDateLabel": "Tarikh Modifikasi",

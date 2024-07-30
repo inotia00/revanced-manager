@@ -79,7 +79,7 @@
   "installerView": {
     "installButton": "நிறுவு",
     "openButton": "திற",
-    "notificationTitle": "ReVanced Manager இணைக்கப் படுகிறது",
+    "notificationTitle": "RVX Manager இணைக்கப் படுகிறது",
     "notificationText": "நிறுவிக்குத் திரும்பச் செல்ல இங்கே கிளிக் செய்யவும்",
     "noExit": "நிறுவி இன்னும் இயங்குகிறது, வெளியேற முடியாது..."
   },
@@ -114,7 +114,7 @@
     "installButton": "நிறுவு",
     "uninstallButton": "நிறுவல்நீக்கம்",
     "rootDialogTitle": "பிழை",
-    "rootDialogText": "பயன்பாடு சூப்பர் யூசர் அனுமதிகளுடன் நிறுவப்பட்டது, ஆனால் தற்போது ReVanced Managerக்கு அனுமதிகள் இல்லை.\nமுதலில் சூப்பர் யூசர் அனுமதிகளை வழங்கவும்.",
+    "rootDialogText": "பயன்பாடு சூப்பர் யூசர் அனுமதிகளுடன் நிறுவப்பட்டது, ஆனால் தற்போது RVX Managerக்கு அனுமதிகள் இல்லை.\nமுதலில் சூப்பர் யூசர் அனுமதிகளை வழங்கவும்.",
     "packageNameLabel": "தொகுப்புப் பெயர்",
     "installTypeLabel": "நிறுவல் முறை",
     "patchedDateLabel": "இணைப்புத் தேதி",

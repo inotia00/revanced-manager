@@ -408,7 +408,7 @@ class PatcherAPI {
     final String patchVersion = _managerAPI.patchesVersion!;
     final String prefix = appName.toLowerCase().replaceAll(' ', '-');
     final String newName =
-        '$prefix-revanced_v$version-patches_$patchVersion.apk';
+        '$prefix-rvx_v$version-patches_$patchVersion.apk';
     return newName;
   }
 

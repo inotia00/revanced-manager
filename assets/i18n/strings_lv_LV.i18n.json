@@ -98,7 +98,7 @@
   "installerView": {
     "installButton": "Instalēt",
     "openButton": "Atvērt",
-    "notificationTitle": "ReVanced Manager pašlaik pačo",
+    "notificationTitle": "RVX Manager pašlaik pačo",
     "notificationText": "Spied, lai atgrieztos pie instalācijas",
     "noExit": "Vēl notiek instalācija, nevar iziet..."
   },
@@ -144,7 +144,7 @@
     "installButton": "Instalēt",
     "uninstallButton": "Atinstalēt",
     "rootDialogTitle": "Kļūda",
-    "rootDialogText": "Aplikācija tika instalēta ar superuser pieejām, taču ReVanced Manager nav šādu pieeju.\nLūdzams uzlikt vispirms superuser ieejas.",
+    "rootDialogText": "Aplikācija tika instalēta ar superuser pieejām, taču RVX Manager nav šādu pieeju.\nLūdzams uzlikt vispirms superuser ieejas.",
     "packageNameLabel": "Pakotnes nosaukums",
     "installTypeLabel": "Instalācijas tips",
     "patchedDateLabel": "Pača datums",

@@ -305,7 +305,7 @@ class InstallerViewModel extends BaseViewModel {
     // Add Info
     final formattedLogs = [
       '- Device Info',
-      'ReVanced Manager: ${info['version']}',
+      'RVX Manager: ${info['version']}',
       'Model: ${info['model']}',
       'Android version: ${info['androidVersion']}',
       'Supported architectures: ${info['supportedArch'].join(", ")}',

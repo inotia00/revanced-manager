@@ -104,9 +104,9 @@ class GithubAPI {
   }
 
   Future<Map<String, dynamic>?> getLatestReleaseWithPreReleases(String repoName) async {
-    /*
-    * Loop through all releases (including pre-releases) and return the latest
-    */
+    /**
+     * Loop through all releases (including pre-releases) and return the latest
+     */
     try {
       final Response response = await _dio.get('/repos/$repoName/releases');
       final List<dynamic> releases = response.data;

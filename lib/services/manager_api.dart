@@ -299,8 +299,14 @@ class ManagerAPI {
     }
   }
 
-  List<String> getRipArchitectureList() {
-    if (!isRipLibsEnabled()) {
+  /**
+   * For YouTube Music, there is only one architecture in the APK.
+   * Therefore, if a user applies RipLibs to YouTube Music, there is a possibility that there will be no architecture left.
+   * (e.g. if a user patches ARMv7-only YouTube Music on an ARMv8 device)
+   * To avoid this issue, if the app the user is trying to patch is YouTube Music, RipLibs will not be applied.
+   */
+  List<String> getRipArchitectureList(String packageName) {
+    if (!isRipLibsEnabled() || packageName == 'com.google.android.apps.youtube.music') {
       return emptyList;
     } else {
       return archs;

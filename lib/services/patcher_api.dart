@@ -193,7 +193,7 @@ class PatcherAPI {
             'tmpDirPath': tmpDir.path,
             'keyStoreFilePath': _keyStoreFile.path,
             'keystorePassword': _managerAPI.getKeystorePassword(),
-            'ripArchitectureList': _managerAPI.getRipArchitectureList(),
+            'ripArchitectureList': _managerAPI.getRipArchitectureList(packageName),
           },
         );
       } on Exception catch (e) {

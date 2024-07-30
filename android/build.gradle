@@ -10,6 +10,7 @@ allprojects {
                 password = project.findProperty("gpr.key") as String ?: System.getenv("GITHUB_TOKEN")
             }
         }
+        maven { url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots") }
         mavenLocal()
     }
 }

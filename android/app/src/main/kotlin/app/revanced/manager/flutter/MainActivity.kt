@@ -76,6 +76,7 @@ class MainActivity : FlutterActivity() {
                     val tmpDirPath = call.argument<String>("tmpDirPath")
                     val keyStoreFilePath = call.argument<String>("keyStoreFilePath")
                     val keystorePassword = call.argument<String>("keystorePassword")
+                    val ripArchitectureList = call.argument<List<String>>("ripArchitectureList")
 
                     if (
                         inFilePath != null &&
@@ -85,7 +86,8 @@ class MainActivity : FlutterActivity() {
                         options != null &&
                         tmpDirPath != null &&
                         keyStoreFilePath != null &&
-                        keystorePassword != null
+                        keystorePassword != null &&
+                        ripArchitectureList != null
                     ) {
                         cancel = false
                         runPatcher(
@@ -97,7 +99,8 @@ class MainActivity : FlutterActivity() {
                             options,
                             tmpDirPath,
                             keyStoreFilePath,
-                            keystorePassword
+                            keystorePassword,
+                            ripArchitectureList
                         )
                     } else result.notImplemented()
                 }
@@ -217,7 +220,8 @@ class MainActivity : FlutterActivity() {
         options: Map<String, Map<String, Any>>,
         tmpDirPath: String,
         keyStoreFilePath: String,
-        keystorePassword: String
+        keystorePassword: String,
+        ripArchitectureList: List<String>
     ) {
         val inFile = File(inFilePath)
         val outFile = File(outFilePath)
@@ -340,7 +344,7 @@ class MainActivity : FlutterActivity() {
 
                 if (cancel(patcher::close)) return@Thread
 
-                patcherResult.applyTo(inFile)
+                patcherResult.applyTo(inFile, ripArchitectureList.toTypedArray())
 
                 if (cancel(patcher::close)) return@Thread
 

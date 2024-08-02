@@ -104,8 +104,8 @@
   },
   "patchOptionsView": {
     "customValue": "Niestandardowa wartość",
-	"setToNull": "Ustaw na wartość null",
-    "nullValue": "Ta opcja ma obecnie wartość null",
+	"setToNull": "Brak wartości",
+    "nullValue": "Ta opcja nie ma obecnie ustawionej wartości",
     "viewTitle": "Opcje łatek",
     "saveOptions": "Zapisz",
 	"unselectPatch": "Odznacz łatkę",

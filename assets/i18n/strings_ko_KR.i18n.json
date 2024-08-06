@@ -84,7 +84,7 @@
     "downloadToast": "다운로드 기능은 아직 사용할 수 없습니다",
     "requireSuggestedAppVersionDialogText": "선택한 앱 버전이 권장 앱 버전과 일치하지 않아서 예상되지 않은 문제점이 발생할 수 있습니다. 권장 앱 버전을 사용하세요.\n\n선택한 앱 버전: ${selected}\n권장 앱 버전: ${suggested}\n\n계속하려면 설정에서 '권장 앱 버전 요구'를 비활성화하세요.",
     "featureNotAvailable": "기능이 구현되지 않았습니다",
-    "featureNotAvailableText": "이 앱은 분할 APK이며 Root 권한으로 마운트해야만 안정적으로 패치와 설치할 수 있습니다. 그러나 저장소에서 완전한 APK를 선택하여 패치 및 설치할 수 있습니다."
+    "featureNotAvailableText": "이 앱은 분할 APK이며 Root 권한으로 마운트해야만 안정적으로 패치 및 설치할 수 있습니다. 그러나 저장소에서 완전한 APK를 선택하여 패치 및 설치할 수 있습니다."
   },
   "patchesSelectorView": {
     "viewTitle": "패치 선택하기",

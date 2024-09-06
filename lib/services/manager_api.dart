@@ -42,7 +42,7 @@ class ManagerAPI {
   int sdkVersion = 0;
   String storedPatchesFile = '/selected-patches.json';
   String keystoreFile =
-      '/sdcard/Android/data/app.revanced.manager.flutter/files/revanced-manager.keystore';
+      '/sdcard/Android/data/app.rvx.manager.flutter/files/revanced-manager.keystore';
   String defaultKeystorePassword = 's3cur3p@ssw0rd';
   String defaultApiUrl = 'https://api.revanced.app/';
   String defaultRepoUrl = 'https://api.github.com';

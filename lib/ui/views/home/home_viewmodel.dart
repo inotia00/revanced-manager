@@ -168,7 +168,7 @@ class HomeViewModel extends BaseViewModel {
 
   Future<File?> downloadManager() async {
     try {
-      final response = await _revancedAPI.downloadManager();
+      final response = await _managerAPI.downloadManager();
       final bytes = await response!.readAsBytes();
       final tempDir = await getTemporaryDirectory();
       final tempFile = File('${tempDir.path}/revanced-manager.apk');
@@ -235,6 +235,9 @@ class HomeViewModel extends BaseViewModel {
               onPressed: () async {
                 _managerAPI.setDownloadConsent(true);
                 _managerAPI.setPatchesAutoUpdate(autoUpdate.value);
+                _managerAPI.setChangingToggleModified(true);
+                _managerAPI.setPatchesChangeEnabled(true);
+                _managerAPI.useAlternativeSources(true);
                 Navigator.of(context).pop();
               },
               child: Text(t.okButton),
@@ -484,7 +487,7 @@ class HomeViewModel extends BaseViewModel {
 
   Future<String?> getLatestPatchesChangelog() async {
     final release =
-        await _githubAPI.getLatestRelease(_managerAPI.defaultPatchesRepo);
+        await _githubAPI.getLatestRelease(_managerAPI.getPatchesRepo());
     return release?['body'];
   }
 

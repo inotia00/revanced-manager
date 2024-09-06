@@ -112,14 +112,13 @@ class MainActivity : FlutterActivity() {
 
                 "getPatches" -> {
                     val patchBundleFilePath = call.argument<String>("patchBundleFilePath")!!
-                    val cacheDirPath = call.argument<String>("cacheDirPath")!!
 
                     try {
                         val patchBundleFile = File(patchBundleFilePath)
                         patchBundleFile.setWritable(false)
                         patches = PatchBundleLoader.Dex(
                             patchBundleFile,
-                            optimizedDexDirectory = File(cacheDirPath)
+                            optimizedDexDirectory = codeCacheDir
                         )
                     } catch (ex: Exception) {
                         return@setMethodCallHandler result.notImplemented()

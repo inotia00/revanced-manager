@@ -325,6 +325,14 @@ class ManagerAPI {
     await _prefs.setBool('RipLibsEnabled', value);
   }
 
+  bool isPreReleasesEnabled() {
+    return _prefs.getBool('preReleasesEnabled') ?? false;
+  }
+
+  Future<void> enablePreReleasesStatus(bool value) async {
+    await _prefs.setBool('preReleasesEnabled', value);
+  }
+
   bool isVersionCompatibilityCheckEnabled() {
     return _prefs.getBool('versionCompatibilityCheckEnabled') ?? true;
   }
@@ -544,7 +552,9 @@ class ManagerAPI {
   }
 
   Future<String?> getLatestPatchesReleaseTime() async {
-    final release = await _githubAPI.getLatestRelease(getPatchesRepo());
+    final release = isPreReleasesEnabled()
+        ? await _githubAPI.getLatestReleaseWithPreReleases(getPatchesRepo())
+        : await _githubAPI.getLatestRelease(getPatchesRepo());
     if (release != null) {
       final DateTime timestamp = DateTime.parse(release['created_at'] as String);
       return format(timestamp, locale: 'en_short');
@@ -573,7 +583,9 @@ class ManagerAPI {
   }
 
   Future<String?> getLatestIntegrationsVersion() async {
-    final release = await _githubAPI.getLatestRelease(getIntegrationsRepo());
+    final release = isPreReleasesEnabled()
+        ? await _githubAPI.getLatestReleaseWithPreReleases(getIntegrationsRepo())
+        : await _githubAPI.getLatestRelease(getIntegrationsRepo());
     if (release != null) {
       return release['tag_name'];
     } else {
@@ -582,7 +594,9 @@ class ManagerAPI {
   }
 
   Future<String?> getLatestPatchesVersion() async {
-    final release = await _githubAPI.getLatestRelease(getPatchesRepo());
+    final release = isPreReleasesEnabled()
+        ? await _githubAPI.getLatestReleaseWithPreReleases(getPatchesRepo())
+        : await _githubAPI.getLatestRelease(getPatchesRepo());
     if (release != null) {
       return release['tag_name'];
     } else {

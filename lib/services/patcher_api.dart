@@ -169,6 +169,9 @@ class PatcherAPI {
     }
 
     if (integrationsFile != null) {
+      if (_managerAPI.isRooted) {
+        await _rootAPI.unmount(packageName, apkFilePath);
+      }
       _dataDir.createSync();
       _tmpDir.createSync();
       final Directory workDir = await _tmpDir.createTemp('tmp-');

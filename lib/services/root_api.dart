@@ -96,6 +96,15 @@ class RootAPI {
     );
   }
 
+  Future<void> unmount(
+    String packageName,
+    String apkFilePath
+  ) async {
+    await Root.exec(
+      cmd: 'am force-stop $packageName && umount -l $apkFilePath',
+    );
+  }
+
   Future<void> removeOrphanedFiles() async {
     await Root.exec(
       cmd: 'find $_revancedDirPath -type f -name original.apk -delete',

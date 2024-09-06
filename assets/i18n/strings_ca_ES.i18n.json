@@ -66,7 +66,7 @@
   "installerView": {
     "installButton": "Instal·la",
     "openButton": "Obre",
-    "notificationTitle": "ReVanced Manager està aplicant pedaços",
+    "notificationTitle": "RVX Manager està aplicant pedaços",
     "notificationText": "Toqui per tornar a l'instal·lador",
     "noExit": "L'instal·lador està en funcionament, no es pot sortir..."
   },
@@ -102,7 +102,7 @@
     "installButton": "Instal·la",
     "uninstallButton": "Desinstal·la",
     "rootDialogTitle": "Error",
-    "rootDialogText": "L'aplicació s'ha instal·lat amb permisos de superusuari, però actualment ReVanced Manager no té cap permís.\nSi us plau, concediu primer permisos de superusuari.",
+    "rootDialogText": "L'aplicació s'ha instal·lat amb permisos de superusuari, però actualment RVX Manager no té cap permís.\nSi us plau, concediu primer permisos de superusuari.",
     "packageNameLabel": "Nom del paquet",
     "installTypeLabel": "Tipus d'instal·lació",
     "patchedDateLabel": "Data pedaçada",

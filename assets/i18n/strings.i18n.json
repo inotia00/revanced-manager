@@ -114,7 +114,9 @@
     "selectFolder": "Select folder",
     "requiredOption": "Setting this option is required",
     "unsupportedOption": "This option is not supported",
-    "requiredOptionNull": "The following options have to be set:\n\n${options}"
+    "requiredOptionNull": "The following options have to be set:\n\n${options}",
+    "resetOptionsTooltip": "Reset patch options",
+    "addOptions": "Add options"
   },
   "patchItem": {
     "unsupportedDialogText": "Selecting this patch may result in patching errors.\n\nApp version: ${packageVersion}\nSupported versions:\n${supportedVersions}",

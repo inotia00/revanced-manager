@@ -5,6 +5,7 @@ import 'package:revanced_manager/models/patch.dart';
 import 'package:revanced_manager/services/manager_api.dart';
 import 'package:revanced_manager/ui/views/patcher/patcher_viewmodel.dart';
 import 'package:revanced_manager/ui/views/patches_selector/patches_selector_viewmodel.dart';
+import 'package:revanced_manager/ui/widgets/shared/custom_card.dart';
 import 'package:stacked/stacked.dart';
 
 class PatchOptionsViewModel extends BaseViewModel {
@@ -13,7 +14,7 @@ class PatchOptionsViewModel extends BaseViewModel {
       locator<PatcherViewModel>().selectedApp!.packageName;
   List<Option> options = [];
   List<Option> savedOptions = [];
-  List<Option> modifiedOptions = [];
+  List<Option> visibleOptions = [];
 
   Future<void> initialize() async {
     options = getDefaultOptions();
@@ -27,18 +28,36 @@ class PatchOptionsViewModel extends BaseViewModel {
         savedOptions.add(savedOption);
       }
     }
-    modifiedOptions = [
-      ...savedOptions,
-      ...options.where(
-        (option) => !savedOptions.any((sOption) => sOption.key == option.key),
-      ),
-    ];
+    if (savedOptions.isNotEmpty) {
+      visibleOptions = [
+        ...savedOptions,
+        ...options.where(
+          (option) =>
+              option.required &&
+              !savedOptions.any((sOption) => sOption.key == option.key),
+        ),
+      ];
+    } else {
+      visibleOptions = [
+        ...options.where((option) => option.required),
+      ];
+    }
+  }
+
+  void addOption(Option option) {
+    visibleOptions.add(option);
+    notifyListeners();
+  }
+
+  void removeOption(Option option) {
+    visibleOptions.removeWhere((vOption) => vOption.key == option.key);
+    notifyListeners();
   }
 
   bool saveOptions(BuildContext context) {
     final List<Option> requiredNullOptions = [];
     for (final Option option in options) {
-      if (modifiedOptions.any((mOption) => mOption.key == option.key)) {
+      if (!visibleOptions.any((vOption) => vOption.key == option.key)) {
         _managerAPI.clearPatchOption(
           selectedApp,
           _managerAPI.selectedPatch!.name,
@@ -46,7 +65,7 @@ class PatchOptionsViewModel extends BaseViewModel {
         );
       }
     }
-    for (final Option option in modifiedOptions) {
+    for (final Option option in visibleOptions) {
       if (option.required && option.value == null) {
         requiredNullOptions.add(option);
       } else {
@@ -79,8 +98,11 @@ class PatchOptionsViewModel extends BaseViewModel {
       required: option.required,
       key: option.key,
     );
-    modifiedOptions.removeWhere((mOption) => mOption.key == option.key);
-    modifiedOptions.add(modifiedOption);
+    visibleOptions[visibleOptions
+        .indexWhere((vOption) => vOption.key == option.key)] = modifiedOption;
+    _managerAPI.modifiedOptions
+        .removeWhere((mOption) => mOption.key == option.key);
+    _managerAPI.modifiedOptions.add(modifiedOption);
   }
 
   List<Option> getDefaultOptions() {
@@ -100,11 +122,93 @@ class PatchOptionsViewModel extends BaseViewModel {
     return defaultOptions;
   }
 
-  dynamic getDefaultValue(Option patchOption) => _managerAPI.options
-      .firstWhere(
-        (option) => option.key == patchOption.key,
-      )
-      .value;
+  void resetOptions() {
+    _managerAPI.modifiedOptions.clear();
+    visibleOptions =
+        getDefaultOptions().where((option) => option.required).toList();
+    notifyListeners();
+  }
+
+  Future<void> showAddOptionDialog(BuildContext context) async {
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              t.patchOptionsView.addOptions,
+            ),
+            Text(
+              '',
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.onSecondaryContainer,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          FilledButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(t.cancelButton),
+          ),
+        ],
+        contentPadding: const EdgeInsets.all(8),
+        content: Wrap(
+          spacing: 14,
+          runSpacing: 14,
+          children: options
+              .where(
+            (option) =>
+                !visibleOptions.any((vOption) => vOption.key == option.key),
+          )
+              .map((e) {
+            return CustomCard(
+              padding: const EdgeInsets.all(4),
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              onTap: () {
+                addOption(e);
+                Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            e.title,
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            e.description,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
 }
 
 Future<void> showRequiredOptionNullDialog(

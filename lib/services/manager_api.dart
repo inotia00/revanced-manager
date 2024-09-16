@@ -32,6 +32,7 @@ class ManagerAPI {
   final String cliRepo = 'revanced-cli';
   late SharedPreferences _prefs;
   List<Patch> patches = [];
+  List<Option> modifiedOptions = [];
   List<Option> options = [];
   List<String> archs = ['arm64-v8a', 'x86', 'x86_64', 'armeabi-v7a'];
   List<String> emptyList = [];

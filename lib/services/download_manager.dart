@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:flutter/foundation.dart';
@@ -78,6 +79,14 @@ class DownloadManager {
 
 class _ShowToastInterceptor extends Interceptor {
   final Toast _toast = locator<Toast>();
+  bool _noConnection = false;
+
+  _ShowToastInterceptor() {
+    final Future connectivityResult = Connectivity().checkConnectivity();
+    connectivityResult.then((result) {
+      _noConnection = result.contains(ConnectivityResult.none);
+    });
+  }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
@@ -98,9 +107,12 @@ class _ShowToastInterceptor extends Interceptor {
             '${response.statusCode} ${response.statusMessage}: ${err.requestOptions.uri}');
       }
     } else {
-      // The "DioException" text is unnecessary for users, so remove it to simplify
-      _toast.showBottom(err.requestOptions.uri.host +
-          err.toString().replaceFirst('DioException', ''));
+      // Show errors only when connected to network
+      if (!_noConnection) {
+        // The "DioException" text is unnecessary for users, so remove it to simplify
+        _toast.showBottom(err.requestOptions.uri.host +
+            err.toString().replaceFirst('DioException', ''));
+      }
     }
     super.onError(err, handler);
   }

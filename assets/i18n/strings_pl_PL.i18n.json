@@ -114,7 +114,9 @@
     "selectFolder": "Wybierz folder",
     "requiredOption": "Ustawienie tej opcji jest wymagane",
     "unsupportedOption": "Ta opcja nie jest wspierana",
-    "requiredOptionNull": "Należy ustawić następujące opcje:\n\n${options}"
+    "requiredOptionNull": "Należy ustawić następujące opcje:\n\n${options}",
+    "resetOptionsTooltip": "Zresetuj opcje od łatek",
+    "addOptions": "Dodaj opcje"
   },
   "patchItem": {
     "unsupportedDialogText": "Wybranie tej łatki może spowodować błędy podczas modyfikowania.\n\nWersja aplikacji: ${packageVersion}\nAktualnie wspierana wersja:\n${supportedVersions}",

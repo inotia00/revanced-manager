@@ -114,7 +114,9 @@
     "selectFolder": "Klasör seç",
     "requiredOption": "Bu seçeneği ayarlamak gereklidir",
     "unsupportedOption": "Bu seçenek desteklenmiyor",
-    "requiredOptionNull": "Aşağıdaki seçeneklerin ayarlanması gerekiyor:\n\n${options}"
+    "requiredOptionNull": "Aşağıdaki seçeneklerin ayarlanması gerekiyor:\n\n${options}",
+    "resetOptionsTooltip": "Yama seçeneklerini sıfırla",
+    "addOptions": "Seçenek ekle"
   },
   "patchItem": {
     "unsupportedDialogText": "Bu yamayı seçmek yamalama hatalarına sebep olabilir.\n\nUygulama sürümü: ${packageVersion}\nDesteklenen sürümler:\n${supportedVersions}",

@@ -114,7 +114,9 @@
     "selectFolder": "請選取資料夾",
     "requiredOption": "此選項必需被設定",
     "unsupportedOption": "不支援此選項",
-    "requiredOptionNull": "以下選項需要進行設定：\n\n${options}"
+    "requiredOptionNull": "以下選項需要進行設定：\n\n${options}",
+    "resetOptionsTooltip": "重設修補選項",
+    "addOptions": "新增設定選項"
   },
   "patchItem": {
     "unsupportedDialogText": "選取此補丁將可能導致修補錯誤。\n應用程式版本：${packageVersion}\n支援的版本：${supportedVersions}",

@@ -114,7 +114,9 @@
     "selectFolder": "폴더 선택",
     "requiredOption": "이 옵션은 필수 설정입니다",
     "unsupportedOption": "지원하지 않는 옵션입니다",
-    "requiredOptionNull": "다음 옵션들이 설정되어 있어야 합니다:\n\n${options}"
+    "requiredOptionNull": "다음 옵션들이 설정되어 있어야 합니다:\n\n${options}",
+    "resetOptionsTooltip": "패치 옵션 초기화",
+    "addOptions": "옵션 추가"
   },
   "patchItem": {
     "unsupportedDialogText": "이 패치는 문제점을 발생시킬 수 있습니다.\n\n앱 버전: ${packageVersion}\n지원되는 버전:\n${supportedVersions}",
@@ -192,7 +194,7 @@
     "preReleasesDialogText": "Pre-Release 버전은 개발 목적으로 사용되며 예상되지 않은 문제점이 발생할 수 있습니다",
     "preReleasesDialogText2": "설치된 RVX Manager와 호환되지 않을 수 있으며 패치 오류가 발생할 수 있습니다.\n\n그래도 계속하시겠습니까?",
     "lastPatchedAppLabel": "패치된 앱 저장",
-    "lastPatchedAppHint": "나중에 설치하거나 내보내고 싶은 '마지막으로 패치된 앱'을 저장할 수 있습니다",
+    "lastPatchedAppHint": "마지막으로 패치된 앱을 저장하여 나중에 설치하거나 내보낼 수 있습니다",
     "versionCompatibilityCheckLabel": "버전 호환성 체크",
     "versionCompatibilityCheckHint": "선택한 앱 버전과 호환되지 않는 패치를 선택할 수 없습니다",
     "requireSuggestedAppVersionLabel": "권장 앱 버전 요구",
@@ -225,7 +227,7 @@
     "deleteLogsHint": "수집된 RVX Manager 로그를 제거합니다",
     "deletedLogs": "로그를 제거하였습니다",
     "regenerateKeystoreLabel": "키스토어 재생성",
-    "regenerateKeystoreHint": "앱을 서명할 때 사용된 키스토어를 재생성합니다",
+    "regenerateKeystoreHint": "앱을 서명할 때 사용한 키스토어를 재생성합니다",
     "regenerateKeystoreDialogTitle": "키스토어를 재생성하시겠습니까?",
     "regenerateKeystoreDialogText": "기존 키스토어로 서명한 패치된 앱을 더 이상 업데이트할 수 없게 됩니다.",
     "regeneratedKeystore": "키스토어를 재생성하였습니다",
@@ -289,6 +291,7 @@
     "status_failure_timeout_description": "설치하는 데 시간이 너무 오래 걸립니다.\n\n다시 시도하시겠습니까?",
     "status_failure_storage_description": "저장소 공간이 충분하지 않아서 설치에 실패하였습니다.\n\n저장소 공간을 확보한 후에 다시 시도하세요.",
     "status_failure_invalid_description": "패치된 앱이 유효하지 않아서 설치에 실패하였습니다.\n\n앱을 제거한 후에 다시 시도하시겠습니까?",
+    "status_failure_incompatible_description": "이 앱은 이 기기와 호환되지 않습니다.\n\n이 기기에서 지원되는 APK를 사용하여 다시 시도하세요.",
     "status_failure_conflict_description": "기존에 설치된 앱이 설치를 방해하였습니다.\n\n설치된 앱을 제거한 후에 다시 시도하시겠습니까?",
     "status_failure_blocked_description": "설치가 '${packageName}'에 의해 차단되었습니다.\n\n보안 설정을 조정한 후에 다시 시도하세요.",
     "install_failed_verification_failure_description": "인증 문제로 인해 설치에 실패하였습니다.\n\n보안 설정을 조정한 후에 다시 시도하세요.",

@@ -114,7 +114,9 @@
     "selectFolder": "Välj mapp",
     "requiredOption": "Inställning av detta alternativ krävs",
     "unsupportedOption": "Detta alternativ stöds ej",
-    "requiredOptionNull": "Följande alternativ måste anges:\n\n${options}"
+    "requiredOptionNull": "Följande alternativ måste anges:\n\n${options}",
+    "resetOptionsTooltip": "Återställ patchalternativ",
+    "addOptions": "Lägg till alternativ"
   },
   "patchItem": {
     "unsupportedDialogText": "Denna patchen kan orsaka patchningsfel.\n\nAppversion: ${packageVersion}\nKompatibla versioner:\n${supportedVersions}",

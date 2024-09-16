@@ -114,7 +114,9 @@
     "selectFolder": "Mappa kiválasztása",
     "requiredOption": "Ennek az opciónak a beállítása kötelező",
     "unsupportedOption": "Ez az opció nem támogatott",
-    "requiredOptionNull": "A következő opciókat kell beállítani:\n\n${options}"
+    "requiredOptionNull": "A következő opciókat kell beállítani:\n\n${options}",
+    "resetOptionsTooltip": "Patch beállítások visszaállítása",
+    "addOptions": "Opciók hozzáadása"
   },
   "patchItem": {
     "unsupportedDialogText": "Ezt a patchet nem biztos hogy sikerül alkalmazni, mert más verzióhoz készült.\n\nAlkalmazás verzió: ${packageVersion}\nTámogatott verziók:\n${supportedVersions}",

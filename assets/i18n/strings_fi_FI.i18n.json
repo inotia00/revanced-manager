@@ -114,7 +114,9 @@
     "selectFolder": "Valitse kansio",
     "requiredOption": "Tämän asetuksen asettaminen on pakollinen",
     "unsupportedOption": "Tätä asetusta ei tueta",
-    "requiredOptionNull": "Seuraavat asetukset on määritettävä:\n\n${options}"
+    "requiredOptionNull": "Seuraavat asetukset on määritettävä:\n\n${options}",
+    "resetOptionsTooltip": "Palauta paikkausasetukset",
+    "addOptions": "Lisää asetuksia"
   },
   "patchItem": {
     "unsupportedDialogText": "Tämän paikkauksen valinta voi aiheuttaa virheitä.\n\nSovelluksen versio: ${packageVersion}\nTuetut versiot: \n${supportedVersions}",

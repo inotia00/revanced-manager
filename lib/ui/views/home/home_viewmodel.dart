@@ -264,7 +264,7 @@ class HomeViewModel extends BaseViewModel {
               children: [
                 Text(
                   t.homeView.updateDialogText(
-                    file: isPatches ? 'ReVanced Patches' : 'ReVanced Manager',
+                    file: isPatches ? 'ReVanced Patches' : 'RVX Manager',
                     version: isPatches
                         ? _currentPatchesVersion
                         : _currentManagerVersion,

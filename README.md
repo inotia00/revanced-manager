@@ -80,8 +80,8 @@ Some of the features ReVanced Manager provides are:
 
 ## 🔽 Download
 
-You can download the most recent version of ReVanced Manager at [revanced.app/download](https://revanced.app/download) or from [GitHub releases](https://github.com/ReVanced/revanced-manager/releases/latest).  
-Learn how to use ReVanced Manager by following the [documentation](/docs).
+You can download the most recent version of RVX Manager from [here](https://github.com/inotia00/revanced-manager/releases/latest).  
+Learn how to use RVX Manager to build ReVanced Extended apps by following [this document](https://github.com/inotia00/revanced-documentation/blob/main/docs/rvx-manager.md).
 
 ## 📚 Everything else
 

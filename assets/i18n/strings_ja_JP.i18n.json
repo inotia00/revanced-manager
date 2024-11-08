@@ -9,7 +9,7 @@
   "noButton": "いいえ",
   "warning": "警告",
   "notice": "お知らせ",
-  "noShowAgain": "今後は表示しない",
+  "noShowAgain": "今後表示しない",
   "add": "追加",
   "remove": "削除",
   "showChangelogButton": "更新履歴を表示",
@@ -31,10 +31,10 @@
     "installUpdate": "更新を適用しますか？",
     "updateSheetTitle": "RVX Managerを更新",
     "updateDialogTitle": "新しいアップデートが利用可能です",
-    "updatePatchesSheetTitle": "ReVancedパッチを更新",
+    "updatePatchesSheetTitle": "ReVanced Patchesを更新",
     "updateChangelogTitle": "変更履歴",
     "updateDialogText": "${file} の更新が利用可能です。\n現在のバージョン: ${version} ",
-    "downloadConsentDialogTitle": "必要なファイルをダウンロードしますか?",
+    "downloadConsentDialogTitle": "必要なファイルをダウンロードしますか？",
     "downloadConsentDialogText": "RVX Managerを正常に動作させるために必要なファイルをダウンロードする必要があります。",
     "downloadConsentDialogText2": "${url} に接続します。",
     "downloadingMessage": "更新データをダウンロードしています...",
@@ -55,7 +55,7 @@
     "widgetTitle": "パッチャー",
     "patchButton": "パッチ",
     "incompatibleArchWarningDialogText": "このアーキテクチャへのパッチ適用はまだサポートされておらず、失敗する可能性があります。続行しますか？",
-    "removedPatchesWarningDialogText": "以下のパッチはもう使用できません。\n\n${patches}\n\n続行しますか?",
+    "removedPatchesWarningDialogText": "以下のパッチはもう使用できません。\n\n${patches}\n\n続行しますか？",
     "requiredOptionDialogText": "一部のパッチオプションを設定する必要があります。"
   },
   "appSelectorCard": {
@@ -84,7 +84,7 @@
     "downloadToast": "ダウンロード機能はまだ実装されていないため、利用できません",
     "requireSuggestedAppVersionDialogText": "選択したアプリのバージョンは推奨バージョンではありません。予期せぬ問題が発生する可能性があります。\n推奨バージョンを選択してください。\n\n選択されたバージョン ${selected}\n推奨バージョン ${suggested}\n\n選択されたバージョンを使用する場合、設定から「推奨バージョンの使用を強制」を無効にしてください。",
     "featureNotAvailable": "この機能は未実装です",
-    "featureNotAvailableText": "このアプリは分割されたAPKであり、ルート権限でマウントすることによってのみ確実にパッチを適用してインストールできます。 ただし、ストレージから選択することで完全なAPKをパッチしてインストールすることができます。"
+    "featureNotAvailableText": "このアプリは分割APKであり、パッチの適用とインストールにはルート権限でマウントする必要があります。ただし、ストレージから単一APKを選択することでパッチの適用とインストールが可能です。"
   },
   "patchesSelectorView": {
     "viewTitle": "パッチを選択",
@@ -219,7 +219,7 @@
     "resetStoredPatchesDialogText": "デフォルトのパッチの選択が復元されます。",
     "resetStoredPatches": "パッチの選択をリセットしました",
     "resetStoredOptionsLabel": "パッチオプションをリセット",
-    "resetStoredOptionsHint": "すべてのパッチ設定をリセット",
+    "resetStoredOptionsHint": "すべてのパッチ設定をリセットします",
     "resetStoredOptionsDialogTitle": "パッチ設定をリセットしますか？",
     "resetStoredOptionsDialogText": "パッチ設定をリセットすると、保存されたすべてのオプションが削除されます。",
     "resetStoredOptions": "設定をリセットしました",

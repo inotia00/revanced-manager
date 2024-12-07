@@ -22,7 +22,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "app.revanced.manager.flutter"
+        applicationId = "app.rvx.manager.flutter"
         minSdk = 26
         targetSdk = 35
         versionCode = flutter.versionCode

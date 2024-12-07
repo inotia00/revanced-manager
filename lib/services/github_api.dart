@@ -103,6 +103,33 @@ class GithubAPI {
     return null;
   }
 
+  Future<Map<String, dynamic>?> getLatestReleaseWithPreReleases(String repoName) async {
+    /**
+     * Loop through all releases (including pre-releases) and return the latest
+     */
+    try {
+      final Response response = await _dio.get('/repos/$repoName/releases');
+      final List<dynamic> releases = response.data;
+      if (releases.isEmpty) return getLatestRelease(repoName);
+      Map<String, dynamic>? latestRelease;
+      DateTime latestReleaseDate = DateTime.fromMillisecondsSinceEpoch(0);
+      for (final release in releases) { 
+        final DateTime releaseDate = DateTime.parse(release['published_at']);
+        if (releaseDate.isAfter(latestReleaseDate)) {
+          latestReleaseDate = releaseDate;
+          latestRelease = release;
+        }
+      }
+      if (latestRelease == null) return getLatestRelease(repoName);
+      return latestRelease;
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      return getLatestRelease(repoName);
+    }
+  }
+
   Future<Map<String, dynamic>?> getLatestManagerRelease(
     String repoName,
   ) async {

@@ -17,6 +17,7 @@ import 'package:revanced_manager/services/revanced_api.dart';
 import 'package:revanced_manager/services/root_api.dart';
 import 'package:revanced_manager/services/toast.dart';
 import 'package:revanced_manager/ui/widgets/shared/haptics/haptic_checkbox_list_tile.dart';
+import 'package:revanced_manager/utils/about_info.dart';
 import 'package:revanced_manager/utils/check_for_supported_patch.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart';
@@ -32,7 +33,10 @@ class ManagerAPI {
   late SharedPreferences _prefs;
   Map<String, List>? contributors;
   List<Patch> patches = [];
+  List<Option> modifiedOptions = [];
   List<Option> options = [];
+  List<String> archs = ['arm64-v8a', 'x86', 'x86_64', 'armeabi-v7a'];
+  List<String> emptyList = [];
   Patch? selectedPatch;
   BuildContext? ctx;
   bool isRooted = false;
@@ -95,6 +99,8 @@ class ManagerAPI {
       _prefs.setBool('useAlternativeSources', usingAlternativeSources);
       _prefs.setBool('migratedToAlternativeSource', true);
     }
+
+    setRipArchitectureList();
   }
 
   Future<int> getSdkVersion() async {
@@ -288,6 +294,43 @@ class ManagerAPI {
 
   Future<void> enableUniversalPatchesStatus(bool value) async {
     await _prefs.setBool('universalPatchesEnabled', value);
+  }
+
+  Future<void> setRipArchitectureList() async {
+    try {
+      final String architecture = await AboutInfo.getInfo().then((info) {
+        return info['supportedArch'][0];
+      });
+      archs.removeWhere((item) => item.endsWith(architecture));
+      if (archs.length == 4) archs = emptyList;
+    } on Exception catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      archs = emptyList;
+    }
+  }
+
+  /**
+   * For YouTube Music, there is only one architecture in the APK.
+   * Therefore, if a user applies RipLibs to YouTube Music, there is a possibility that there will be no architecture left.
+   * (e.g. if a user patches ARMv7-only YouTube Music on an ARMv8 device)
+   * To avoid this issue, if the app the user is trying to patch is YouTube Music, RipLibs will not be applied.
+   */
+  List<String> getRipArchitectureList(String packageName) {
+    if (!isRipLibsEnabled() || packageName == 'com.google.android.apps.youtube.music') {
+      return emptyList;
+    } else {
+      return archs;
+    }
+  }
+
+  bool isRipLibsEnabled() {
+    return _prefs.getBool('RipLibsEnabled') ?? false;
+  }
+
+  Future<void> enableRipLibsStatus(bool value) async {
+    await _prefs.setBool('RipLibsEnabled', value);
   }
 
   bool isVersionCompatibilityCheckEnabled() {

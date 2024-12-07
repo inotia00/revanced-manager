@@ -184,6 +184,8 @@
     "showUpdateDialogHint": "Show a dialog when a new update is available",
     "universalPatchesLabel": "Show universal patches",
     "universalPatchesHint": "Display all apps and universal patches (may slow down the app list)",
+    "ripLibsLabel": "Remove unused library",
+    "ripLibsHint": "Compile only the architecture of the device",
     "lastPatchedAppLabel": "Save patched app",
     "lastPatchedAppHint": "Save the last patch to install or export later",
     "versionCompatibilityCheckLabel": "Version compatibility check",

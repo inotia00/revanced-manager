@@ -358,7 +358,7 @@ class ManagerAPI {
   }
 
   bool isLastPatchedAppEnabled() {
-    return _prefs.getBool('lastPatchedAppEnabled') ?? true;
+    return _prefs.getBool('lastPatchedAppEnabled') ?? false;
   }
 
   Future<void> enableLastPatchedAppStatus(bool value) async {

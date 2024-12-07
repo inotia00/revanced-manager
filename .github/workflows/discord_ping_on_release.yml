@@ -1,0 +1,22 @@
+name: Ping Discord on release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          username: ReVanced Extended
+          color: 0xff5252
+          nodetail: true
+          notimestamp: true
+          content: "<@&1271198041361354833>"
+          title: "RVX Manager `${{ github.event.release.tag_name }}` has been released!"
+          description: |
+            Click [here](${{ github.event.release.html_url }}) to download it and read the changelog.

@@ -115,7 +115,9 @@
     "selectFolder": "Изберете папка",
     "requiredOption": "Настройката на тази опция е задължителна",
     "unsupportedOption": "Тази опция не се поддържа",
-    "requiredOptionNull": "Следните опции трябва да бъдат зададени:\n\n${options}"
+    "requiredOptionNull": "Следните опции трябва да бъдат зададени:\n\n${options}",
+    "resetOptionsTooltip": "Нулиране опциите на модификациите",
+    "addOptions": "Добави опции"
   },
   "patchItem": {
     "unsupportedDialogText": "Изборът на тази модификация може да доведе до грешки.\n\nВерсия: ${packageVersion}\nПоддържани версии: ${supportedVersions}",

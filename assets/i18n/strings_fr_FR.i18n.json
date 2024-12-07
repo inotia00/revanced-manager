@@ -115,7 +115,9 @@
     "selectFolder": "Sélectionner le dossier",
     "requiredOption": "Définir cette option est nécessaire",
     "unsupportedOption": "Cette option n'est pas prise en charge",
-    "requiredOptionNull": "Les options suivantes doivent être définies :\n\n${options}"
+    "requiredOptionNull": "Les options suivantes doivent être définies :\n\n${options}",
+    "resetOptionsTooltip": "Réinitialiser les options de patch",
+    "addOptions": "Ajouter des options"
   },
   "patchItem": {
     "unsupportedDialogText": "Sélectionner ce patch peut entrainer des erreurs dans la modification.\n\nVersion de l'application : ${packageVersion}\nVersions prises en charge :\n${supportedVersions}",

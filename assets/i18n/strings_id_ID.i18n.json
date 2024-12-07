@@ -115,7 +115,9 @@
     "selectFolder": "Pilih folder",
     "requiredOption": "Pengaturan pilihan ini diperlukan",
     "unsupportedOption": "Pilihan ini tidak didukung",
-    "requiredOptionNull": "Pilihan ini harus terpilih:\n\n${options}"
+    "requiredOptionNull": "Pilihan ini harus terpilih:\n\n${options}",
+    "resetOptionsTooltip": "Mengatur ulang opsi tambalan",
+    "addOptions": "Tambahkan opsi"
   },
   "patchItem": {
     "unsupportedDialogText": "Memilih tambalan ini mungkin menyebabkan kegagalan tambal.\n\nVersi aplikasi: ${packageVersion}\nVersi yang didukung:\n${supportedVersions}",

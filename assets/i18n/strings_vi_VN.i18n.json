@@ -113,7 +113,9 @@
     "selectFolder": "Chọn thư mục",
     "requiredOption": "Thiết lập tùy chọn này là bắt buộc",
     "unsupportedOption": "Tùy chọn này không được hỗ trợ",
-    "requiredOptionNull": "Các tùy chọn sau cần được thiết đặt:\n\n${options}"
+    "requiredOptionNull": "Các tùy chọn sau cần được thiết đặt:\n\n${options}",
+    "resetOptionsTooltip": "Cài lại tất cả tùy chọn",
+    "addOptions": "Thêm tùy chọn"
   },
   "patchItem": {
     "unsupportedDialogText": "Chọn bản vá này có thể gây lỗi khi vá.\n\nPhiên bản ứng dụng: ${packageVersion}\nPhiên bản được hỗ trợ: ${supportedVersions}",

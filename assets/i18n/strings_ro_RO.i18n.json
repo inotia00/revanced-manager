@@ -115,7 +115,9 @@
     "selectFolder": "Selectați dosarul",
     "requiredOption": "Setarea acestei opțiuni este necesară",
     "unsupportedOption": "Această opțiune nu este acceptată",
-    "requiredOptionNull": "Următoarele opțiuni trebuie setate:\n\n${options}"
+    "requiredOptionNull": "Următoarele opțiuni trebuie setate:\n\n${options}",
+    "resetOptionsTooltip": "Resetează opțiunile patch-ului",
+    "addOptions": "Adaugă opțiuni"
   },
   "patchItem": {
     "unsupportedDialogText": "Selectarea acestui patch poate rezulta în erori de patch-uire.\n\nVersiunea aplicației: ${packageVersion}\nVersiuni compatibile:\n${supportedVersions}",

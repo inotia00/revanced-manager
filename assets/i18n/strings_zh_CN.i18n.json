@@ -113,7 +113,9 @@
     "selectFolder": "选择文件夹",
     "requiredOption": "设置此选项是必需的",
     "unsupportedOption": "不支持此选项",
-    "requiredOptionNull": "必须设置以下选项：\n\n${options}"
+    "requiredOptionNull": "必须设置以下选项：\n\n${options}",
+    "resetOptionsTooltip": "重置补丁选项",
+    "addOptions": "添加选项"
   },
   "patchItem": {
     "unsupportedDialogText": "选择此补丁可能导致修补错误。\n\n应用版本： ${packageVersion}\n当前支持的版本：\n${supportedVersions}",

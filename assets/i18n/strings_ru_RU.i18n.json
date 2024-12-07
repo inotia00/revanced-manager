@@ -115,7 +115,9 @@
     "selectFolder": "Выберите папку",
     "requiredOption": "Эта опция обязательна",
     "unsupportedOption": "Эта опция не поддерживается",
-    "requiredOptionNull": "Следующие опции должны быть установлены:\n\n${options}"
+    "requiredOptionNull": "Следующие опции должны быть установлены:\n\n${options}",
+    "resetOptionsTooltip": "Сброс параметров патчей",
+    "addOptions": "Добавить параметры"
   },
   "patchItem": {
     "unsupportedDialogText": "Выбор этого патча может привести к ошибкам во время патчинга.\n\nВерсия приложения: ${packageVersion}\nПоддерживаемые версии: ${supportedVersions}",

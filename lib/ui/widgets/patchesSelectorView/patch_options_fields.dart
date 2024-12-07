@@ -13,11 +13,13 @@ class BooleanPatchOption extends StatelessWidget {
   const BooleanPatchOption({
     super.key,
     required this.patchOption,
-    required this.model,
+    required this.removeOption,
+    required this.onChanged,
   });
 
   final Option patchOption;
-  final PatchOptionsViewModel model;
+  final void Function(Option option) removeOption;
+  final void Function(dynamic value, Option option) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -32,94 +34,88 @@ class BooleanPatchOption extends StatelessWidget {
               value: value ?? false,
               onChanged: (bool value) {
                 patchOptionValue.value = value;
-                model.modifyOptions(value, patchOption);
+                onChanged(value, patchOption);
               },
             );
           },
         ),
       ),
       patchOption: patchOption,
-      patchOptionValue: patchOptionValue,
-      model: model,
+      removeOption: (Option option) {
+        removeOption(option);
+      },
     );
   }
 }
 
-class IntAndStringPatchOption extends StatefulWidget {
+class IntAndStringPatchOption extends StatelessWidget {
   const IntAndStringPatchOption({
     super.key,
     required this.patchOption,
-    required this.model,
+    required this.removeOption,
+    required this.onChanged,
   });
 
   final Option patchOption;
-  final PatchOptionsViewModel model;
-
-  @override
-  State<IntAndStringPatchOption> createState() =>
-      _IntAndStringPatchOptionState();
-}
-
-class _IntAndStringPatchOptionState extends State<IntAndStringPatchOption> {
-  ValueNotifier? patchOptionValue;
-  String getKey() {
-    if (patchOptionValue!.value != null && widget.patchOption.values != null) {
-      final List values = widget.patchOption.values!.entries
-          .where((e) => e.value == patchOptionValue!.value)
-          .toList();
-      if (values.isNotEmpty) {
-        return values.first.key;
-      }
-    }
-    return '';
-  }
+  final void Function(Option option) removeOption;
+  final void Function(dynamic value, Option option) onChanged;
 
   @override
   Widget build(BuildContext context) {
-    patchOptionValue ??= ValueNotifier(widget.patchOption.value);
+    final ValueNotifier patchOptionValue = ValueNotifier(patchOption.value);
+    String getKey() {
+      if (patchOption.value != null && patchOption.values != null) {
+        final List values = patchOption.values!.entries
+            .where((e) => e.value == patchOption.value)
+            .toList();
+        if (values.isNotEmpty) {
+          return values.first.key;
+        }
+      }
+      return '';
+    }
+
     return PatchOption(
-      widget: ValueListenableBuilder(
-        valueListenable: patchOptionValue!,
-        builder: (context, value, child) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextFieldForPatchOption(
-                value: value,
-                patchOption: widget.patchOption,
-                selectedKey: getKey(),
-                onChanged: (value) {
-                  patchOptionValue!.value = value;
-                  widget.model.modifyOptions(value, widget.patchOption);
-                },
-              ),
-              if (value == null)
-                Column(
+      widget: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextFieldForPatchOption(
+            value: patchOption.value,
+            values: patchOption.values,
+            optionType: patchOption.type,
+            selectedKey: getKey(),
+            onChanged: (value) {
+              patchOptionValue.value = value;
+              onChanged(value, patchOption);
+            },
+          ),
+          ValueListenableBuilder(
+            valueListenable: patchOptionValue,
+            builder: (context, value, child) {
+              if (patchOption.required && value == null) {
+                return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 8),
                     Text(
-                      widget.patchOption.required
-                          ? t.patchOptionsView.requiredOption
-                          : t.patchOptionsView.nullValue,
+                      t.patchOptionsView.requiredOption,
                       style: TextStyle(
-                        color: widget.patchOption.required
-                            ? Theme.of(context).colorScheme.error
-                            : Theme.of(context)
-                                .colorScheme
-                                .onSecondaryContainer
-                                .withOpacity(0.6),
+                        color: Theme.of(context).colorScheme.error,
                       ),
                     ),
                   ],
-                ),
-            ],
-          );
-        },
+                );
+              } else {
+                return const SizedBox();
+              }
+            },
+          ),
+        ],
       ),
-      patchOption: widget.patchOption,
-      patchOptionValue: patchOptionValue!,
-      model: widget.model,
+      patchOption: patchOption,
+      removeOption: (Option option) {
+        removeOption(option);
+      },
     );
   }
 }
@@ -128,11 +124,13 @@ class IntStringLongListPatchOption extends StatelessWidget {
   const IntStringLongListPatchOption({
     super.key,
     required this.patchOption,
-    required this.model,
+    required this.removeOption,
+    required this.onChanged,
   });
 
   final Option patchOption;
-  final PatchOptionsViewModel model;
+  final void Function(Option option) removeOption;
+  final void Function(dynamic value, Option option) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +176,8 @@ class IntStringLongListPatchOption extends StatelessWidget {
                   final e = values[index];
                   return TextFieldForPatchOption(
                     value: e.toString(),
-                    patchOption: patchOption,
+                    values: patchOption.values,
+                    optionType: type,
                     selectedKey: value.length > 1 ? '' : getKey(e),
                     showDropdown: index == 0,
                     onChanged: (newValue) {
@@ -210,13 +209,13 @@ class IntStringLongListPatchOption extends StatelessWidget {
                         }
                       }
                       patchOptionValue.value = List.from(values);
-                      model.modifyOptions(values, patchOption);
+                      onChanged(values, patchOption);
                     },
                     removeValue: () {
                       patchOptionValue.value = List.from(patchOptionValue.value)
                         ..removeAt(index);
                       values.removeAt(index);
-                      model.modifyOptions(values, patchOption);
+                      onChanged(values, patchOption);
                     },
                   );
                 },
@@ -236,7 +235,7 @@ class IntStringLongListPatchOption extends StatelessWidget {
                             List.from(patchOptionValue.value)..add(0);
                         values.add(0);
                       }
-                      model.modifyOptions(values, patchOption);
+                      onChanged(values, patchOption);
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -259,8 +258,9 @@ class IntStringLongListPatchOption extends StatelessWidget {
         },
       ),
       patchOption: patchOption,
-      patchOptionValue: patchOptionValue,
-      model: model,
+      removeOption: (Option option) {
+        removeOption(option);
+      },
     );
   }
 }
@@ -286,8 +286,7 @@ class UnsupportedPatchOption extends StatelessWidget {
         ),
       ),
       patchOption: patchOption,
-      patchOptionValue: ValueNotifier(null),
-      model: PatchOptionsViewModel(),
+      removeOption: (_) {},
     );
   }
 }
@@ -297,18 +296,15 @@ class PatchOption extends StatelessWidget {
     super.key,
     required this.widget,
     required this.patchOption,
-    required this.patchOptionValue,
-    required this.model,
+    required this.removeOption,
   });
 
   final Widget widget;
   final Option patchOption;
-  final ValueNotifier patchOptionValue;
-  final PatchOptionsViewModel model;
+  final void Function(Option option) removeOption;
 
   @override
   Widget build(BuildContext context) {
-    final defaultValue = model.getDefaultValue(patchOption);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CustomCard(
@@ -345,24 +341,11 @@ class PatchOption extends StatelessWidget {
                           ],
                         ),
                       ),
-                      ValueListenableBuilder(
-                        valueListenable: patchOptionValue,
-                        builder: (context, value, child) {
-                          if (defaultValue != patchOptionValue.value) {
-                            return IconButton(
-                              onPressed: () {
-                                patchOptionValue.value = defaultValue;
-                                model.modifyOptions(
-                                  defaultValue,
-                                  patchOption,
-                                );
-                              },
-                              icon: const Icon(Icons.history),
-                            );
-                          }
-                          return const SizedBox();
-                        },
-                      ),
+                      if (!patchOption.required)
+                        IconButton(
+                          onPressed: () => removeOption(patchOption),
+                          icon: const Icon(Icons.delete),
+                        ),
                     ],
                   ),
                   const SizedBox(height: 4),
@@ -381,15 +364,17 @@ class TextFieldForPatchOption extends StatefulWidget {
   const TextFieldForPatchOption({
     super.key,
     required this.value,
-    required this.patchOption,
+    required this.values,
     this.removeValue,
     required this.onChanged,
+    required this.optionType,
     required this.selectedKey,
     this.showDropdown = true,
   });
 
   final String? value;
-  final Option patchOption;
+  final Map<String, dynamic>? values;
+  final String optionType;
   final String selectedKey;
   final bool showDropdown;
   final void Function()? removeValue;
@@ -408,19 +393,20 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isStringOption = widget.patchOption.type.contains('String');
-    final bool isListOption = widget.patchOption.type.contains('List');
-    selectedKey = selectedKey == '' ? selectedKey : widget.selectedKey;
-    final bool isValueArray = widget.value?.startsWith('[') ?? false;
-    final bool shouldResetValue =
-        !isStringOption && isListOption && selectedKey == '' && isValueArray;
-    controller.text = shouldResetValue ? '' : widget.value ?? '';
+    final bool isStringOption = widget.optionType.contains('String');
+    final bool isListOption = widget.optionType.contains('List');
+    selectedKey ??= widget.selectedKey;
+    controller.text = !isStringOption &&
+            isListOption &&
+            selectedKey == '' &&
+            (widget.value != null && widget.value.toString().startsWith('['))
+        ? ''
+        : widget.value ?? '';
     defaultValue ??= controller.text;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.showDropdown &&
-            (widget.patchOption.values?.isNotEmpty ?? false))
+        if (widget.showDropdown && (widget.values?.isNotEmpty ?? false))
           DropdownButton<String>(
             style: const TextStyle(
               fontSize: 16,
@@ -429,12 +415,11 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
             dropdownColor: Theme.of(context).colorScheme.secondaryContainer,
             isExpanded: true,
             value: selectedKey,
-            items: widget.patchOption.values!.entries
+            items: widget.values!.entries
                 .map(
                   (e) => DropdownMenuItem(
                     value: e.key,
                     child: RichText(
-                      overflow: TextOverflow.ellipsis,
                       text: TextSpan(
                         text: e.key,
                         style: TextStyle(
@@ -447,7 +432,7 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                           TextSpan(
                             text: ' ${e.value}',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               color: Theme.of(context)
                                   .colorScheme
                                   .onSecondaryContainer
@@ -467,7 +452,9 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                     t.patchOptionsView.customValue,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSecondaryContainer,
                     ),
                   ),
                 ),
@@ -477,11 +464,9 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                 controller.text = defaultValue!;
                 widget.onChanged(controller.text);
               } else {
-                controller.text = widget.patchOption.values![value].toString();
+                controller.text = widget.values![value].toString();
                 widget.onChanged(
-                  isListOption
-                      ? widget.patchOption.values![value]
-                      : controller.text,
+                  isListOption ? widget.values![value] : controller.text,
                 );
               }
               setState(() {
@@ -492,9 +477,9 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
         if (selectedKey == '')
           TextFormField(
             inputFormatters: [
-              if (widget.patchOption.type.contains('Int'))
+              if (widget.optionType.contains('Int'))
                 FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-              if (widget.patchOption.type.contains('Long'))
+              if (widget.optionType.contains('Long'))
                 FilteringTextInputFormatter.allow(RegExp(r'^[0-9]*\.?[0-9]*')),
             ],
             controller: controller,
@@ -520,11 +505,6 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                         child: Text(t.patchOptionsView.selectFolder),
                       ),
                     ],
-                    if (!widget.patchOption.required)
-                      PopupMenuItem(
-                        value: 'null',
-                        child: Text(t.patchOptionsView.setToNull),
-                      ),
                   ];
                 },
                 onSelected: (String selection) async {
@@ -567,10 +547,6 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
                       break;
                     case 'remove':
                       widget.removeValue!();
-                      break;
-                    case 'null':
-                      controller.text = '';
-                      widget.onChanged(null);
                       break;
                   }
                 },

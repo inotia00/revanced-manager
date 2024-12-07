@@ -113,7 +113,9 @@
     "selectFolder": "Выбраць папку",
     "requiredOption": "Неабходна наладзіць гэты параметр",
     "unsupportedOption": "Гэты параметр не падтрымліваецца",
-    "requiredOptionNull": "Наступныя параметры павінны быць зададзены:\n\n${options}"
+    "requiredOptionNull": "Наступныя параметры павінны быць зададзены:\n\n${options}",
+    "resetOptionsTooltip": "Скінуць параметры выпраўлення",
+    "addOptions": "Дадаць параметры"
   },
   "patchItem": {
     "unsupportedDialogText": "Выбар гэтага выпраўлення можа прывесці да памылак падчас яго ўжывання.\n\nВерсія праграмы: ${packageVersion}\nВерсіі, якія падтрымліваюцца:\n${supportedVersions}",

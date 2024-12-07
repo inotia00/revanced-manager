@@ -115,7 +115,9 @@
     "selectFolder": "Изабери фолдер",
     "requiredOption": "Ова опција је обавезна",
     "unsupportedOption": "Ова опција није подржана",
-    "requiredOptionNull": "Потребно је изабрати следеће опције:\n\n${options}"
+    "requiredOptionNull": "Потребно је изабрати следеће опције:\n\n${options}",
+    "resetOptionsTooltip": "Ресетуј опције печа",
+    "addOptions": "Додај опције"
   },
   "patchItem": {
     "unsupportedDialogText": "Избором овог печа може доћи до грешака приликом печовања.\n\nВерзија апликације: ${packageVersion}\nПодржане верзије:\n${supportedVersions}",

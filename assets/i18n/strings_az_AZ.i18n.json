@@ -115,7 +115,9 @@
     "selectFolder": "Qovluq seç",
     "requiredOption": "Bu seçimi tənzimləmək tələb olunur",
     "unsupportedOption": "Bu seçim dəstəklənmir",
-    "requiredOptionNull": "Aşağıdakı seçimlər tənzimlənməlidir:\n\n${options}"
+    "requiredOptionNull": "Aşağıdakı seçimlər tənzimlənməlidir:\n\n${options}",
+    "resetOptionsTooltip": "Yamaq seçimlərini sıfırla",
+    "addOptions": "Seçim əlavə et"
   },
   "patchItem": {
     "unsupportedDialogText": "Bu yamağı seçmək, yamaqlanma xətalarına səbəb ola bilər.\n\nTətbiq versiyası: ${packageVersion} \nDəstəklənən versiyalar:\n${supportedVersions}",

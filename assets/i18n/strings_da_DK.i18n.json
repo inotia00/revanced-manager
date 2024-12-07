@@ -115,7 +115,9 @@
     "selectFolder": "Vælg mappe",
     "requiredOption": "Indstilling af denne indstilling er påkrævet",
     "unsupportedOption": "Denne indstilling understøttes ikke",
-    "requiredOptionNull": "Følgende indstillinger skal indstilles:\n\n${options}"
+    "requiredOptionNull": "Følgende indstillinger skal indstilles:\n\n${options}",
+    "resetOptionsTooltip": "Nulstil patch indstillinger",
+    "addOptions": "Tilføj indstillinger"
   },
   "patchItem": {
     "unsupportedDialogText": "Valg af denne patch kan medføre patching-fejl.\n\nApp version: ${packageVersion}\nUnderstøttede versioner:\n${supportedVersions}",

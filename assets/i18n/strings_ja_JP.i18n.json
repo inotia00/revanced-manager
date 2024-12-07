@@ -115,7 +115,9 @@
     "selectFolder": "フォルダーを選択",
     "requiredOption": "このオプションを設定する必要があります",
     "unsupportedOption": "このオプションはサポートされていません",
-    "requiredOptionNull": "以下のオプションを設定する必要があります:\n\n${options}"
+    "requiredOptionNull": "以下のオプションを設定する必要があります:\n\n${options}",
+    "resetOptionsTooltip": "パッチ設定をリセット",
+    "addOptions": "オプションを追加"
   },
   "patchItem": {
     "unsupportedDialogText": "このパッチを選択するとエラーが発生する可能性があります。\n\n現在のバージョン: ${packageVersion}\nサポートされているバージョン: ${supportedVersions}",

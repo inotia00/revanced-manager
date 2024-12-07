@@ -115,7 +115,9 @@
     "selectFolder": "Оберіть теку",
     "requiredOption": "Встановлення цього параметра є обов'язковим",
     "unsupportedOption": "Цей параметр не підтримується",
-    "requiredOptionNull": "Необхідно встановити наступні параметри:\n\n${options}"
+    "requiredOptionNull": "Необхідно встановити наступні параметри:\n\n${options}",
+    "resetOptionsTooltip": "Скинути параметри патчу",
+    "addOptions": "Додати параметри"
   },
   "patchItem": {
     "unsupportedDialogText": "Вибір цього патчу може призвести до помилок при встановленні патчу.\n\nВерсія застосунку: ${packageVersion}\nПідтримувані версії:\n${supportedVersions}",

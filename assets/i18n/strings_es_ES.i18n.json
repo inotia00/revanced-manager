@@ -115,7 +115,9 @@
     "selectFolder": "Seleccionar carpeta",
     "requiredOption": "La configuración de esta opción es necesaria",
     "unsupportedOption": "Esta opción no está disponible",
-    "requiredOptionNull": "Hay que establecer las siguientes opciones:\n\n${options}"
+    "requiredOptionNull": "Hay que establecer las siguientes opciones:\n\n${options}",
+    "resetOptionsTooltip": "Restablecer las opciones de parche",
+    "addOptions": "Añadir opciones"
   },
   "patchItem": {
     "unsupportedDialogText": "Seleccionar este parche puede causar errores.\n\nVersión de la app: ${packageVersion}\nVersiones compatibles:\n${supportedVersions}",

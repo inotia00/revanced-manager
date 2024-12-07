@@ -115,7 +115,9 @@
     "selectFolder": "تحديد مجلد",
     "requiredOption": "إعداد هذا الخيار مطلوب",
     "unsupportedOption": "هذا الخيار غير مدعوم",
-    "requiredOptionNull": "يجب تعيين الخيارات التالية:\n\n${options}"
+    "requiredOptionNull": "يجب تعيين الخيارات التالية:\n\n${options}",
+    "resetOptionsTooltip": "إعادة تعيين خيارات التعديل",
+    "addOptions": "إضافة خيارات"
   },
   "patchItem": {
     "unsupportedDialogText": "قد يؤدي تحديد هذا التعديل إلى حدوث أخطاء في عملية التعديل.\n\nإصدار التطبيق: ${packageVersion}\nالإصدارات المدعومة حاليًا:\n${supportedVersions}",

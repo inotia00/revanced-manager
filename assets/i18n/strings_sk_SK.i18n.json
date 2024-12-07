@@ -144,7 +144,7 @@
     "installButton": "Inštalovať",
     "uninstallButton": "Odinštalovať",
     "rootDialogTitle": "Chyba",
-    "rootDialogText": "Aplikácia bola nainštalovaná s oprávneniami superpoužívateľa, ale v súčasnosti ReVanced Manažér nemá žiadne oprávnenia. Najskôr mu udeľte oprávnenia superužívateľa.",
+    "rootDialogText": "Aplikácia bola nainštalovaná s oprávneniami superpoužívateľa, ale v súčasnosti RVX Manažér nemá žiadne oprávnenia. Najskôr mu udeľte oprávnenia superužívateľa.",
     "packageNameLabel": "Názov balíka",
     "installTypeLabel": "Spôsob inštalácie",
     "mountTypeLabel": "Pripojiť",

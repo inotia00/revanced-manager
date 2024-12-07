@@ -24,7 +24,7 @@ class _LatestCommitCardState extends State<LatestCommitCard> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // ReVanced Manager
+        // RVX Manager
         CustomCard(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +33,7 @@ class _LatestCommitCardState extends State<LatestCommitCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text('ReVanced Manager'),
+                    const Text('RVX Manager'),
                     const SizedBox(height: 4),
                     Row(
                       children: <Widget>[

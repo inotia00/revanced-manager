@@ -35,7 +35,7 @@
     "updateChangelogTitle": "Liosta athraithe",
     "updateDialogText": "Tá nuashonrú nua ar fáil do ${file}.\n\nIs é ${version} an leagan atá suiteáilte faoi láthair.",
     "downloadConsentDialogTitle": "Íoslódáil comhaid riachtanacha?",
-    "downloadConsentDialogText": "Ní mór do ReVanced Manager na comhaid riachtanacha a íoslódáil chun oibriú i gceart.",
+    "downloadConsentDialogText": "Ní mór do RVX Manager na comhaid riachtanacha a íoslódáil chun oibriú i gceart.",
     "downloadConsentDialogText2": "Ceanglóidh sé seo tú le ${url}.",
     "downloadingMessage": "Íoslódáil nuashonrú...",
     "downloadedMessage": "Tá nuashonrú íosluchtaithe",

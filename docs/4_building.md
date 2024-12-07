@@ -7,7 +7,7 @@ Learn how to build ReVanced Manager from source.
 2. Clone the repository
 
    ```sh
-   git clone https://github.com/revanced/revanced-manager.git && cd revanced-manager
+   git clone https://github.com/inotia00/revanced-manager.git && cd revanced-manager
    ```
 
 3. Get dependencies

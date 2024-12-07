@@ -1,6 +1,6 @@
 # 💊 ReVanced Manager
 
-This documentation explains how to use [ReVanced Manager](https://github.com/revanced/revanced-manager).
+This documentation explains how to use [RVX Manager](https://github.com/inotia00/revanced-manager).
 
 ## 📖 Table of contents
 

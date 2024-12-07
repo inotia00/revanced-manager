@@ -47,10 +47,8 @@ class ManagerAPI {
   String defaultKeystorePassword = 's3cur3p@ssw0rd';
   String defaultApiUrl = 'https://api.revanced.app/v4';
   String defaultRepoUrl = 'https://api.github.com';
-  String defaultPatcherRepo = 'revanced/revanced-patcher';
-  String defaultPatchesRepo = 'revanced/revanced-patches';
-  String defaultCliRepo = 'revanced/revanced-cli';
-  String defaultManagerRepo = 'revanced/revanced-manager';
+  String defaultPatchesRepo = 'inotia00/revanced-patches';
+  String defaultManagerRepo = 'inotia00/revanced-manager';
   String? patchesVersion = '';
 
   Future<void> initialize() async {
@@ -169,7 +167,7 @@ class ManagerAPI {
   }
 
   bool isPatchesChangeEnabled() {
-    return _prefs.getBool('patchesChangeEnabled') ?? false;
+    return _prefs.getBool('patchesChangeEnabled') ?? true;
   }
 
   void setPatchesChangeEnabled(bool value) {
@@ -193,7 +191,7 @@ class ManagerAPI {
   }
 
   bool isChangingToggleModified() {
-    return _prefs.getBool('isChangingToggleModified') ?? false;
+    return _prefs.getBool('isChangingToggleModified') ?? true;
   }
 
   void setChangingToggleModified(bool value) {
@@ -242,7 +240,7 @@ class ManagerAPI {
   }
 
   bool isUsingAlternativeSources() {
-    return _prefs.getBool('useAlternativeSources') ?? false;
+    return _prefs.getBool('useAlternativeSources') ?? true;
   }
 
   Option? getPatchOption(String packageName, String patchName, String key) {
@@ -460,10 +458,6 @@ class ManagerAPI {
   }
 
   Future<File?> downloadPatches() async {
-    if (!isUsingAlternativeSources()) {
-      return await _revancedAPI.getLatestReleaseFile('patches');
-    }
-
     try {
       final String repoName = getPatchesRepo();
       final String currentVersion = await getCurrentPatchesVersion();
@@ -483,48 +477,47 @@ class ManagerAPI {
   }
 
   Future<File?> downloadManager() async {
-    return await _revancedAPI.getLatestReleaseFile('manager');
+    return await _githubAPI.getLatestReleaseFile(
+      '.apk',
+      defaultManagerRepo,
+    );
   }
 
   Future<String?> getLatestPatchesReleaseTime() async {
-    if (!isUsingAlternativeSources()) {
-      return await _revancedAPI.getLatestReleaseTime('patches');
+    final release = await _githubAPI.getLatestRelease(getPatchesRepo());
+    if (release != null) {
+      final DateTime timestamp = DateTime.parse(release['created_at'] as String);
+      return format(timestamp, locale: 'en_short');
     } else {
-      final release = await _githubAPI.getLatestRelease(getPatchesRepo());
-      if (release != null) {
-        final DateTime timestamp =
-            DateTime.parse(release['created_at'] as String);
-        return format(timestamp, locale: 'en_short');
-      } else {
-        return null;
-      }
+      return null;
     }
   }
 
   Future<String?> getLatestManagerReleaseTime() async {
-    return await _revancedAPI.getLatestReleaseTime(
-      'manager',
-    );
+    final release = await _githubAPI.getLatestManagerRelease(defaultManagerRepo);
+    if (release != null) {
+      final DateTime timestamp = DateTime.parse(release['created_at'] as String);
+      return format(timestamp, locale: 'en_short');
+    } else {
+      return null;
+    }
   }
 
   Future<String?> getLatestManagerVersion() async {
-    return await _revancedAPI.getLatestReleaseVersion(
-      'manager',
-    );
+    final release = await _githubAPI.getLatestRelease(defaultManagerRepo);
+    if (release != null) {
+      return release['tag_name'];
+    } else {
+      return null;
+    }
   }
 
   Future<String?> getLatestPatchesVersion() async {
-    if (!isUsingAlternativeSources()) {
-      return await _revancedAPI.getLatestReleaseVersion(
-        'patches',
-      );
+    final release = await _githubAPI.getLatestRelease(getPatchesRepo());
+    if (release != null) {
+      return release['tag_name'];
     } else {
-      final release = await _githubAPI.getLatestRelease(getPatchesRepo());
-      if (release != null) {
-        return release['tag_name'];
-      } else {
-        return null;
-      }
+      return null;
     }
   }
 

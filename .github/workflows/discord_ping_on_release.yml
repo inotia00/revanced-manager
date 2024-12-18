@@ -10,13 +10,33 @@ jobs:
     steps:
       - uses: sarisia/actions-status-discord@v1
         if: always()
+        id: webhook # set id to reference output payload later
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          username: ReVanced Extended
-          color: 0xff5252
+          ack_no_webhook: true # suppress warning
           nodetail: true
           notimestamp: true
+          
+          username: ReVanced Extended
           content: "<@&1271198041361354833>"
           title: "RVX Manager `${{ github.event.release.tag_name }}` has been released!"
           description: |
             Click [here](${{ github.event.release.html_url }}) to download it and read the changelog.
+
+      - run: npm install axios
+      - uses: actions/github-script@v7
+        env:
+          WEBHOOK_PAYLOAD: ${{ steps.webhook.outputs.payload }}
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        with:
+          script: |
+            const axios = require("axios")
+
+            const { WEBHOOK_PAYLOAD, WEBHOOK_URL } = process.env
+
+            const payload = JSON.parse(WEBHOOK_PAYLOAD)
+
+            // remove the color field to make it transparent
+            delete payload.embeds[0].color
+
+            // send to Discord 
+            axios.post(WEBHOOK_URL, payload)

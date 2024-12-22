@@ -38,7 +38,7 @@ Learn how to configure ReVanced Manager.
 
 - ### 🧬 Use alternative source
 
-  Use alternative sources for patches and integrations instead of the API.
+  Use alternative sources for patches instead of the API.
 
   > ℹ️ Note  
   > ReVanced Manager will still use the API for updates.

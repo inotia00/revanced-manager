@@ -189,7 +189,7 @@
     "ripLibsLabel": "Remove unused library",
     "ripLibsHint": "Compile only the architecture of the device",
     "preReleasesLabel": "Use pre-release",
-    "preReleasesHint": "Use the pre-release versions of patches and integrations if ahead of the stable version",
+    "preReleasesHint": "Use the pre-release versions of patches if ahead of the stable version",
     "preReleasesDialogText": "Use pre-release is for development purposes and may cause unexpected issues.",
     "preReleasesDialogText2": "It may not be compatible with the current version of RVX Manager and may cause patching errors.\n\nDo you want to proceed anyways?",
     "lastPatchedAppLabel": "Save patched app",

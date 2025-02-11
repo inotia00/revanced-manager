@@ -32,7 +32,7 @@
     "updateSheetTitle": "RVX Managerを更新",
     "updateDialogTitle": "新しいアップデートが利用可能です",
     "updatePatchesSheetTitle": "ReVanced Patchesを更新",
-    "updateChangelogTitle": "変更履歴",
+    "updateChangelogTitle": "更新履歴",
     "updateDialogText": "${file} の更新が利用可能です。\n現在のバージョン: ${version} ",
     "downloadConsentDialogTitle": "必要なファイルをダウンロードしますか？",
     "downloadConsentDialogText": "RVX Managerを正常に動作させるために必要なファイルをダウンロードする必要があります。",

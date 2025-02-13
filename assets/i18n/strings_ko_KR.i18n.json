@@ -181,7 +181,7 @@
     "enablePatchesSelectionWarningText": "패치의 기본 선택을 변경하는 경우에는 예상되지 않은 문제점이 발생할 수 있습니다.\n\n그래도 활성화하시겠습니까?",
     "disablePatchesSelectionWarningText": "패치 선택 변경을 비활성화하려 합니다.\n패치의 기본 선택목록으로 복원될 것입니다.\n\n그래도 비활성화하시겠습니까?",
     "autoUpdatePatchesLabel": "패치 자동 업데이트",
-    "autoUpdatePatchesHint": "자동으로 패치를 최신 버전으로 업데이트합니다",
+    "autoUpdatePatchesHint": "RVX Manager 앱 내에서 사용할 수 있는 패치를 최신 버전으로 자동 업데이트합니다",
     "showUpdateDialogLabel": "업데이트 팝업창 보기",
     "showUpdateDialogHint": "새 업데이트가 있으면 팝업창을 표시합니다",
     "universalPatchesLabel": "공용 패치 보기",

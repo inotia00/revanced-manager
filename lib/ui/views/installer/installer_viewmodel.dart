@@ -330,6 +330,7 @@ class InstallerViewModel extends BaseViewModel {
       'Show universal patches: ${_managerAPI.areUniversalPatchesEnabled()}',
       'Remove unused library: ${_managerAPI.isRipLibsEnabled()}',
       'Patches source: ${_managerAPI.getPatchesRepo()}',
+      'Use pre-releases: ${_managerAPI.usePrereleases()}',
 
       '\n- Logs',
       logsTrimmed.join('\n'),

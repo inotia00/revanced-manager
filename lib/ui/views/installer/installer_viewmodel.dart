@@ -328,6 +328,7 @@ class InstallerViewModel extends BaseViewModel {
       'Allow changing patch selection: ${_managerAPI.isPatchesChangeEnabled()}',
       'Version compatibility check: ${_managerAPI.isVersionCompatibilityCheckEnabled()}',
       'Show universal patches: ${_managerAPI.areUniversalPatchesEnabled()}',
+      'Remove unused library: ${_managerAPI.isRipLibsEnabled()}',
       'Patches source: ${_managerAPI.getPatchesRepo()}',
 
       '\n- Logs',

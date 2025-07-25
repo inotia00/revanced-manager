@@ -6,6 +6,7 @@ import 'package:revanced_manager/ui/widgets/settingsView/settings_auto_update_pa
 import 'package:revanced_manager/ui/widgets/settingsView/settings_enable_patches_selection.dart';
 import 'package:revanced_manager/ui/widgets/settingsView/settings_last_patched_app.dart';
 import 'package:revanced_manager/ui/widgets/settingsView/settings_require_suggested_app_version.dart';
+import 'package:revanced_manager/ui/widgets/settingsView/settings_riplibs.dart';
 import 'package:revanced_manager/ui/widgets/settingsView/settings_section.dart';
 import 'package:revanced_manager/ui/widgets/settingsView/settings_show_update_dialog.dart';
 import 'package:revanced_manager/ui/widgets/settingsView/settings_universal_patches.dart';
@@ -25,6 +26,7 @@ class SAdvancedSection extends StatelessWidget {
         SRequireSuggestedAppVersion(),
         SVersionCompatibilityCheck(),
         SUniversalPatches(),
+        SRipLibs(),
         SLastPatchedApp(),
       ],
     );

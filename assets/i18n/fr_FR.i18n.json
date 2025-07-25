@@ -139,7 +139,7 @@
     "notificationText": "Appuyez pour revenir à l'installation",
     "exportApkButtonTooltip": "Exporter l'APK patché",
     "exportLogButtonTooltip": "Exporter le journal",
-    "screenshotDetected": "Une capture d’écran a été détectée. Si vous essayez de partager le journal, veuillez plutôt partager une copie textuelle.\n\nCopier le journal dans le presse-papiers ?",
+    "screenshotDetected": "Une capture d’écran a été détectée. Si vous essayez de partager le journal, veuillez plutôt partager une copie textuelle.\n\nCopier les logs dans le presse-papiers ?",
     "copiedToClipboard": "Journal copié dans le presse-papiers",
     "noExit": "L'installateur s'exécute encore, impossible de quitter..."
   },

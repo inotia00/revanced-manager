@@ -189,6 +189,7 @@
     "showUpdateDialogHint": "Mostra una finestra di dialogo quando è disponibile un nuovo aggiornamento",
     "universalPatchesLabel": "Mostra patch universali",
     "universalPatchesHint": "Mostra tutte le app e patch universali (rallenterà la lista delle app)",
+    "ripLibsLabel": "Rimuovi librerie non utilizzate",
     "lastPatchedAppLabel": "Salva app patchata",
     "lastPatchedAppHint": "Salva l'ultima patch da installare o esportare più tardi",
     "versionCompatibilityCheckLabel": "Controllo compatibilità versione",

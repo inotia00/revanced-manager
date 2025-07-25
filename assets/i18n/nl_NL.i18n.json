@@ -115,7 +115,9 @@
     "selectFolder": "Map selecteren",
     "requiredOption": "Het instellen van deze optie is vereist",
     "unsupportedOption": "Deze optie wordt niet ondersteund",
-    "requiredOptionNull": "De volgende opties moeten worden ingesteld:\n\n${options}"
+    "requiredOptionNull": "De volgende opties moeten worden ingesteld:\n\n${options}",
+    "resetOptionsTooltip": "Reset patch opties",
+    "addOptions": "Opties toevoegen"
   },
   "patchItem": {
     "unsupportedDialogText": "Het selecteren van deze patch kan leiden tot patch fouten.\n\nApp-versie: ${packageVersion}\nOndersteunde versies:\n${supportedVersions}",

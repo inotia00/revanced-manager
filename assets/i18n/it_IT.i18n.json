@@ -115,7 +115,9 @@
     "selectFolder": "Seleziona cartella",
     "requiredOption": "L'impostazione di questa opzione è obbligatoria",
     "unsupportedOption": "Questa opzione non è supportata",
-    "requiredOptionNull": "È necessario impostare le seguenti opzioni:\n\n${options}"
+    "requiredOptionNull": "È necessario impostare le seguenti opzioni:\n\n${options}",
+    "resetOptionsTooltip": "Ripristina opzioni patch",
+    "addOptions": "Aggiungi opzioni"
   },
   "patchItem": {
     "unsupportedDialogText": "La selezione di questa patch potrebbe causare degli errori.\n\nVersione dell'app: ${packageVersion}\nVersioni supportate:\n${supportedVersions}",

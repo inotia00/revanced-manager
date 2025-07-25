@@ -115,7 +115,9 @@
     "selectFolder": "Vybrat složku",
     "requiredOption": "Nastavení této možnosti je vyžadováno",
     "unsupportedOption": "Tato možnost není podporována",
-    "requiredOptionNull": "Tyto možnosti musí být nastaveny:\n\n${options}"
+    "requiredOptionNull": "Tyto možnosti musí být nastaveny:\n\n${options}",
+    "resetOptionsTooltip": "Obnovit nastavení záplat",
+    "addOptions": "Přidat možnosti"
   },
   "patchItem": {
     "unsupportedDialogText": "Výběrem této záplaty může dojít k chybám.\n\nVerze aplikace: ${packageVersion}\nAktuálně podporované verze:\n${supportedVersions}",

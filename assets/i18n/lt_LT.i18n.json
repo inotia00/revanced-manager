@@ -115,7 +115,9 @@
     "selectFolder": "Pasirinkti aplanką",
     "requiredOption": "Šios parinkties nustatymas yra būtinas",
     "unsupportedOption": "Ši parinktis nepalaikoma",
-    "requiredOptionNull": "Reikia nustatyti šias parinktis:\n\n${options}"
+    "requiredOptionNull": "Reikia nustatyti šias parinktis:\n\n${options}",
+    "resetOptionsTooltip": "Iš naujo nustatyti pataisymų parinktis",
+    "addOptions": "Pridėti pasirinkimus"
   },
   "patchItem": {
     "unsupportedDialogText": "Pasirinkus šį pataisymą, gali atsirasti pataisymo klaidų.\n\nProgramos versija: ${packageVersion}\nPalaikomos versijos:\n${supportedVersions}",

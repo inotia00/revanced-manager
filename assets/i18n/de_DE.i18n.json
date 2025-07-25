@@ -115,7 +115,9 @@
     "selectFolder": "Ordner auswählen",
     "requiredOption": "Einstellung dieser Option ist erforderlich",
     "unsupportedOption": "Dieser Vorgang ist nicht unterstützt",
-    "requiredOptionNull": "Die folgenden Optionen müssen gesetzt sein:\n\n${options}"
+    "requiredOptionNull": "Die folgenden Optionen müssen gesetzt sein:\n\n${options}",
+    "resetOptionsTooltip": "Patch-Optionen zurücksetzen",
+    "addOptions": "Option hinzufügen"
   },
   "patchItem": {
     "unsupportedDialogText": "Die Auswahl dieses Patches kann zu Fehlern beim Patchen führen.\n\nApp-Version: ${packageVersion}\nUnterstützte Versionen:\n${supportedVersions}",

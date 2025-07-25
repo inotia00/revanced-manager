@@ -115,7 +115,9 @@
     "selectFolder": "ফোল্ডার নির্বাচন করুন",
     "requiredOption": "এই অপশনটি সেট করা আবশ্যক",
     "unsupportedOption": "এই অপশনসটি অসমর্থিত",
-    "requiredOptionNull": "এই অপশনগুলো সেট করতে হবে:\n\n${options}"
+    "requiredOptionNull": "এই অপশনগুলো সেট করতে হবে:\n\n${options}",
+    "resetOptionsTooltip": "প্যাচ অপশন আবার সেট করুন",
+    "addOptions": "অপশন যুক্ত করুন"
   },
   "patchItem": {
     "unsupportedDialogText": "এই প্যাচটি নির্বাচন করলে প্যাচিং ত্রুটিপূর্ণ হতে পারে।\n\nঅ্যাপ সংস্করণ: ${packageVersion}\nসমর্থিত সংস্করণ:\n${supportedVersions}",

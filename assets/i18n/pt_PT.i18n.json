@@ -115,7 +115,9 @@
     "selectFolder": "Escolha a pasta",
     "requiredOption": "É necessário definir esta opção",
     "unsupportedOption": "Esta opção não é suportada",
-    "requiredOptionNull": "As seguintes opções devem ser definidas:\n\n${options}"
+    "requiredOptionNull": "As seguintes opções devem ser definidas:\n\n${options}",
+    "resetOptionsTooltip": "Reiniciar as opções da modificação",
+    "addOptions": "Adicionar opções"
   },
   "patchItem": {
     "unsupportedDialogText": "A escolha desta modificação poderá resultar em erros inesperados na construção da aplicação.\n\nVersão da aplicação: ${packageVersion}\nVersões suportadas:\n${supportedVersions}",

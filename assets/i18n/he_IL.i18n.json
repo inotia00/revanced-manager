@@ -115,7 +115,9 @@
     "selectFolder": "בחר תיקייה",
     "requiredOption": "הגדרת אפשרות זו נדרשת",
     "unsupportedOption": "האפשרות הזו אינה נתמכת",
-    "requiredOptionNull": "האפשרויות הבאות חייבות להיקבע:\n\n${options}"
+    "requiredOptionNull": "האפשרויות הבאות חייבות להיקבע:\n\n${options}",
+    "resetOptionsTooltip": "אפס אפשרויות תיקונים",
+    "addOptions": "הוסף אפשרויות"
   },
   "patchItem": {
     "unsupportedDialogText": "בחירת תיקון זה עלול לגרום לשגיאות תיקון.\nגרסת יישום: ${packageVersion}\nגרסאות נתמכות:\n${supportedVersions}",

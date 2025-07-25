@@ -115,7 +115,9 @@
     "selectFolder": "Επιλογή φακέλου",
     "requiredOption": "Απαιτείται ρύθμιση γι' αυτήν την επιλογή",
     "unsupportedOption": "Αυτή η επιλογή δεν υποστηρίζεται",
-    "requiredOptionNull": "Πρέπει να οριστούν οι παρακάτω επιλογές:\n\n${options}"
+    "requiredOptionNull": "Πρέπει να οριστούν οι παρακάτω επιλογές:\n\n${options}",
+    "resetOptionsTooltip": "Επαναφορά επιλογών τροποποιήσεων",
+    "addOptions": "Προσθήκη επιλογών"
   },
   "patchItem": {
     "unsupportedDialogText": "Η επιλογή αυτής της τροποποίησης μπορεί να επιφέρει σφάλματα τροποποίησης.\n\nΈκδοση εφαρμογής: ${packageVersion}\nΥποστηριζόμενες εκδόσεις: ${supportedVersions}",

@@ -10,6 +10,6 @@ Learn how to view, open and uninstall patched apps.
 
 ## ⏭️ What's next
 
-The next page will explain how to update ReVanced Manager.
+The next page will explain how to update RVX Manager.
 
-Continue: [🔄 Updating ReVanced Manager](2_3_updating.md)
+Continue: [🔄 Updating RVX Manager](2_3_updating.md)

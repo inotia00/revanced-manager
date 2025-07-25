@@ -1,6 +1,6 @@
 # 🛠️ Building from source
 
-Learn how to build ReVanced Manager from source.
+Learn how to build RVX Manager from source.
 
 1. Setup the Flutter environment for your [platform](https://docs.flutter.dev/get-started/install)
 

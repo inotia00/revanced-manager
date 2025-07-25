@@ -269,7 +269,7 @@ class HomeViewModel extends BaseViewModel {
                     Text(
                       t.homeView.updateDialogText(
                         file:
-                            isPatches ? 'ReVanced Patches' : 'ReVanced Manager',
+                            isPatches ? 'ReVanced Patches' : 'RVX Manager',
                         version:
                             isPatches
                                 ? _currentPatchesVersion
@@ -443,7 +443,7 @@ class HomeViewModel extends BaseViewModel {
         //   const NotificationDetails(
         //     android: AndroidNotificationDetails(
         //       'revanced_manager_channel',
-        //       'ReVanced Manager Channel',
+        //       'RVX Manager Channel',
         //       importance: Importance.max,
         //       priority: Priority.high,
         //       ticker: 'ticker',

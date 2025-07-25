@@ -1,18 +1,18 @@
 # ❔ Troubleshooting
 
-In case you encounter any issues while using ReVanced Manager, this page will help you troubleshoot them.
+In case you encounter any issues while using RVX Manager, this page will help you troubleshoot them.
 
 - 💉 Common issues during or after patching
 
-  - Make sure ReVanced Manager is up to date by following [🔄 Updating ReVanced Manager](2_3_updating.md)
-  - You may have changed settings in ReVanced Manager that are not recommended to change. Please review the warnings that appear when adjusting these settings and reset them to their default configuration as explained in [⚙️ Configuring ReVanced Manager](2_4_settings.md)
+  - Make sure RVX Manager is up to date by following [🔄 Updating RVX Manager](2_3_updating.md)
+  - You may have changed settings in RVX Manager that are not recommended to change. Please review the warnings that appear when adjusting these settings and reset them to their default configuration as explained in [⚙️ Configuring RVX Manager](2_4_settings.md)
 
 - 🚫 App not installed as package conflicts with an existing package
 
   An existing installation of the app you're trying to patch conflicts with the patched app (i.e., signature mismatch or downgrade). Uninstall the existing app before installing the patched app.
 
   > 💡 Tip  
-  > This may also be caused by changing settings in ReVanced Manager that are not recommended to change. Please review the warnings that appear when adjusting these settings and reset them to their default configuration as explained in [⚙️ Configuring ReVanced Manager](2_4_settings.md)
+  > This may also be caused by changing settings in RVX Manager that are not recommended to change. Please review the warnings that appear when adjusting these settings and reset them to their default configuration as explained in [⚙️ Configuring RVX Manager](2_4_settings.md)
 
 - ❗️ Error code `135`, `139` or `1` when patching the app
 
@@ -21,11 +21,11 @@ In case you encounter any issues while using ReVanced Manager, this page will he
 
 - 🚨 Patched app crashes on launch
 
-  This may also be caused by changing settings in ReVanced Manager that are not recommended to change. Please review the warnings that appear when adjusting these settings and reset them to their default configuration as explained in [⚙️ Configuring ReVanced Manager](2_4_settings.md)
+  This may also be caused by changing settings in RVX Manager that are not recommended to change. Please review the warnings that appear when adjusting these settings and reset them to their default configuration as explained in [⚙️ Configuring RVX Manager](2_4_settings.md)
 
 ## ⏭️ What's next
 
-The next page will teach you how to build ReVanced Manager from source.
+The next page will teach you how to build RVX Manager from source.
 
 Continue: [🔨 Building from source](4_building.md)
 

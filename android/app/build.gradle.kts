@@ -27,14 +27,14 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
 
-        resValue("string", "app_name", "ReVanced Manager")
+        resValue("string", "app_name", "RVX Manager")
     }
 
     applicationVariants.all {
         outputs.all {
             this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
 
-            outputFileName = "revanced-manager-$versionName.apk"
+            outputFileName = "rvx-manager-$versionName.apk"
         }
     }
 
@@ -61,23 +61,23 @@ android {
                     keyPassword = System.getenv("KEYSTORE_ENTRY_PASSWORD")
                 }
 
-                resValue("string", "app_name", "ReVanced Manager")
+                resValue("string", "app_name", "RVX Manager")
             } else {
                 applicationIdSuffix = ".development"
-                resValue("string", "app_name", "ReVanced Manager (Development)")
+                resValue("string", "app_name", "RVX Manager (Development)")
                 signingConfig = signingConfigs["debug"]
             }
         }
 
         debug {
             applicationIdSuffix = ".debug"
-            resValue("string", "app_name", "ReVanced Manager (Debug)")
+            resValue("string", "app_name", "RVX Manager (Debug)")
         }
 
         named("profile") {
             initWith(getByName("debug"))
             applicationIdSuffix = ".profile"
-            resValue("string", "app_name", "ReVanced Manager (Profile)")
+            resValue("string", "app_name", "RVX Manager (Profile)")
         }
     }
 

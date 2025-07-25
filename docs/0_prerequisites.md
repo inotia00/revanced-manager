@@ -1,6 +1,6 @@
 # 💼 Prerequisites
 
-To use ReVanced Manager, you need to fulfill certain requirements.
+To use RVX Manager, you need to fulfill certain requirements.
 
 ## 🤝 Requirements
 
@@ -9,6 +9,6 @@ To use ReVanced Manager, you need to fulfill certain requirements.
 
 ## ⏭️ What's next
 
-The next page will explain how to install ReVanced Manager.
+The next page will explain how to install RVX Manager.
 
 Continue: [⬇️ Installation](1_installation.md)

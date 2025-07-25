@@ -1,6 +1,6 @@
-# 🔄 Updating ReVanced Manager
+# 🔄 Updating RVX Manager
 
-Learn how to update ReVanced Manager.
+Learn how to update RVX Manager.
 
 ## ✅ Updating steps
 
@@ -9,6 +9,6 @@ Learn how to update ReVanced Manager.
 
 ## ⏭️ What's next
 
-The next page will explain how to configure ReVanced Manager.
+The next page will explain how to configure RVX Manager.
 
-Continue: [⚙️ Configuring ReVanced Manager](2_4_settings.md)
+Continue: [⚙️ Configuring RVX Manager](2_4_settings.md)

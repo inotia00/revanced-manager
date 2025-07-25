@@ -105,7 +105,9 @@ class UpdateConfirmationSheet extends StatelessWidget {
                 ),
               ),
               FutureBuilder<String?>(
-                future: model.getChangelogs(isPatches),
+                future: !isPatches
+                    ? model.getManagerChangelogs()
+                    : model.getLatestPatchesChangelog(),
                 builder: (_, snapshot) {
                   if (!snapshot.hasData) {
                     return Padding(

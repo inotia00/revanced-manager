@@ -161,9 +161,6 @@ class InstallerViewModel extends BaseViewModel {
         _app.packageName,
       );
       await _managerAPI.setUsedPatches(_patches, _app.packageName);
-      _managerAPI.setLastUsedPatchesVersion(
-        version: _managerAPI.patchesVersion,
-      );
       _app.appliedPatches = _patches.map((p) => p.name).toList();
       if (_managerAPI.isLastPatchedAppEnabled()) {
         await _managerAPI.setLastPatchedApp(_app, _patcherAPI.outFile!);

@@ -52,26 +52,18 @@ class GithubAPI {
     }
   }
 
-  Future<String?> getChangelogs(bool isPatches) async {
-    final String repoName =
-        isPatches
-            ? _managerAPI.getPatchesRepo()
-            : _managerAPI.defaultManagerRepo;
+  Future<String?> getManagerChangelogs() async {
     try {
       final response = await _dioGetSynchronously(
-        '/repos/$repoName/releases?per_page=50',
+        '/repos/${_managerAPI.defaultManagerRepo}/releases?per_page=50',
       );
       final buffer = StringBuffer();
-      final String version =
-          isPatches
-              ? _managerAPI.getLastUsedPatchesVersion()
-              : await _managerAPI.getCurrentManagerVersion();
-      int releases = 0;
+      final String currentVersion =
+          await _managerAPI.getCurrentManagerVersion();
       for (final release in response.data) {
-        if (release['tag_name'] == version) {
+        if (release['tag_name'] == currentVersion) {
           if (buffer.isEmpty) {
             buffer.writeln(release['body']);
-            releases++;
           }
           break;
         }
@@ -79,10 +71,6 @@ class GithubAPI {
           continue;
         }
         buffer.writeln(release['body']);
-        releases++;
-        if (isPatches && releases == 10) {
-          break;
-        }
       }
       return buffer.toString();
     } on Exception catch (e) {

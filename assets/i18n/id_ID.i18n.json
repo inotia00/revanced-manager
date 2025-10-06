@@ -23,7 +23,7 @@
     "refreshSuccess": "Berhasil Memuat Ulang",
     "widgetTitle": "Dasbor",
     "updatesSubtitle": "Pembaruan",
-    "lastPatchedAppSubtitle": "Aplikasi terakhir ditambal",
+    "lastPatchedAppSubtitle": "Aplikasi yang terakhir ditambal",
     "patchedSubtitle": "Aplikasi terpasang",
     "changeLaterSubtitle": "Anda dapat mengubahnya di pengaturan nanti.",
     "noSavedAppFound": "Aplikasi tidak ditemukan",
@@ -68,12 +68,12 @@
   },
   "patchSelectorCard": {
     "widgetTitle": "Pilih tambalan",
-    "widgetTitleSelected": "Tambalan terpilih",
+    "widgetTitleSelected": "Tambalan dipilih",//change context from picked (like default picked) to picked (user picked)
     "widgetSubtitle": "Pilih aplikasi terlebih dahulu",
     "widgetEmptySubtitle": "Tambalan belum dipilih"
   },
   "socialMediaCard": {
-    "widgetTitle": "Media Sosial",
+    "widgetTitle": "Media Sosial kami", //add the " our"
     "widgetSubtitle": "Ikuti kami!"
   },
   "appSelectorView": {
@@ -282,7 +282,7 @@
     "install_failed_verification_failure": "Verifikasi gagal",
     "status_failure_invalid": "Pemasangan tidak sah",
     "install_failed_version_downgrade": "Tidak dapat menurunkan versi",
-    "status_failure_conflict": "Pemasangan berselisih",
+    "status_failure_conflict": "Pemasangan berkonflik",
     "status_failure_storage": "Ruang pemasangan bermasalah",
     "status_failure_incompatible": "Pemasangan tidak cocok",
     "status_failure_timeout": "Pemasangan kehabisan waktu",
@@ -291,7 +291,7 @@
     "mount_no_root_description": "Pemasangan gagal karena akses root belum dizinkan.\n\nIzinkan akses root ke RVX Manager dan coba lagi.",
     "mount_missing_installation_description": "Pemasangan gagal dikarenakan aplikasi yang belum ditambal tidak terpasang pada perangkat ini supaya dipasang di atasnya.\n\nPasang aplikasi yang belum ditambal sebelum memasang dan coba lagi.",
     "status_failure_timeout_description": "Pemasangan memakan waktu terlalu lama untuk diselesaikan.\n\nApakah Anda ingin mencoba lagi?",
-    "status_failure_storage_description": "Pemasangan gagal karena ruang penyimpanan tidak cukup.\n\nKosongkan sebagian ruang dan coba lagi.",
+    "status_failure_storage_description": "Pemasangan gagal karena ruang penyimpanan tidak cukup.\n\nKosongkan ruang dan coba lagi.",
     "status_failure_invalid_description": "Pemasangan gagal karena aplikasi yang ditambal tidak sah.\n\nCopot pemasangan aplikasi dan coba lagi?",
     "status_failure_incompatible_description": "Aplikasi tidak cocok dengan perangkat ini.\n\nGunakan APK yang didukung perangkat ini dan coba lagi.",
     "status_failure_conflict_description": "Pemasangan dicegah oleh aplikasi yang sudah ada.\n\nCopot pemasangan aplikasi yang terpasang dan coba lagi?",

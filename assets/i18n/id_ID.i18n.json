@@ -68,12 +68,12 @@
   },
   "patchSelectorCard": {
     "widgetTitle": "Pilih tambalan",
-    "widgetTitleSelected": "Tambalan dipilih",//change context from picked (like default picked) to picked (user picked)
+    "widgetTitleSelected": "Tambalan dipilih", #change context from picked (like default picked) to picked (user picked)
     "widgetSubtitle": "Pilih aplikasi terlebih dahulu",
     "widgetEmptySubtitle": "Tambalan belum dipilih"
   },
   "socialMediaCard": {
-    "widgetTitle": "Media Sosial kami", //add the " our"
+    "widgetTitle": "Media Sosial kami", #add the " our"
     "widgetSubtitle": "Ikuti kami!"
   },
   "appSelectorView": {
@@ -120,7 +120,7 @@
     "addOptions": "Tambahkan opsi"
   },
   "patchItem": {
-    "unsupportedDialogText": "Memilih tambalan ini mungkin menyebabkan kegagalan operasi tambal.\n\nVersi aplikasi: ${packageVersion}\nVersi yang didukung:\n${supportedVersions}", // i edit failure to "operate"
+    "unsupportedDialogText": "Memilih tambalan ini mungkin menyebabkan kegagalan operasi tambal.\n\nVersi aplikasi: ${packageVersion}\nVersi yang didukung:\n${supportedVersions}", # i edit failure to "operate"
     "unsupportedPatchVersion": "Tambalan ini tidak mendukung versi aplikasi ini.",
     "unsupportedRequiredOption": "Tambalan ini berisi pilihan wajib yang tidak didukung oleh aplikasi ini",
     "patchesChangeWarningDialogText": "Direkomendasikan untuk menggunakan pilihan dan opsi tambalan bawaan. Mengubahnya dapat mengakibatkan masalah yang tidak diduga.\n\nAnda harus mengaktifkan \"Izinkan perubahan pilihan tambalan\" dalam pengaturan sebelum mengubah pilihan tambalan.",

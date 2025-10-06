@@ -120,14 +120,14 @@
     "addOptions": "Tambahkan opsi"
   },
   "patchItem": {
-    "unsupportedDialogText": "Memilih tambalan ini mungkin menyebabkan kegagalan tambal.\n\nVersi aplikasi: ${packageVersion}\nVersi yang didukung:\n${supportedVersions}",
+    "unsupportedDialogText": "Memilih tambalan ini mungkin menyebabkan kegagalan operasi tambal.\n\nVersi aplikasi: ${packageVersion}\nVersi yang didukung:\n${supportedVersions}", // i edit failure to "operate"
     "unsupportedPatchVersion": "Tambalan ini tidak mendukung versi aplikasi ini.",
     "unsupportedRequiredOption": "Tambalan ini berisi pilihan wajib yang tidak didukung oleh aplikasi ini",
-    "patchesChangeWarningDialogText": "Direkomendasikan untuk menggunakan pilihan dan opsi tambalan bawaan. Mengubahnya dapat mengakibatkan masalah yang tidak diharapkan.\n\nAnda harus mengaktifkan \"Izinkan perubahan pilihan tambalan\" dalam pengaturan sebelum mengubah pilihan tambalan.",
+    "patchesChangeWarningDialogText": "Direkomendasikan untuk menggunakan pilihan dan opsi tambalan bawaan. Mengubahnya dapat mengakibatkan masalah yang tidak diduga.\n\nAnda harus mengaktifkan \"Izinkan perubahan pilihan tambalan\" dalam pengaturan sebelum mengubah pilihan tambalan.",
     "patchesChangeWarningDialogButton": "Gunakan pemilihan bawaan"
   },
   "installerView": {
-    "installType": "Pilih tipe pemasang",
+    "installType": "Pilih pemasang aplikasi",
     "installTypeDescription": "Pilih jenis instalasi untuk melanjutkan.",
     "installButton": "Pasang",
     "installRootType": "Mount",
@@ -167,9 +167,9 @@
     "sourcesResetDialogText": "Apakah Anda yakin ingin mengatur ulang sumber khusus ke sumber bawaan?",
     "apiURLResetDialogText": "Apakah Anda yakin ingin mengatur ulang URL API ke bawaan?",
     "sourcesUpdateNote": "Catatan: Ini akan secara otomatis mengunduh ReVanced Patches dari sumber alternatif.\n\nIni akan menghubungkan Anda ke sumber alternatif.",
-    "apiURLLabel": "URL API",
-    "apiURLHint": "Atur URL API dari RVX Manager",
-    "selectApiURL": "URL API",
+    "apiURLLabel": "link API",
+    "apiURLHint": "Atur link API dari RVX Manager",
+    "selectApiURL": "pilih link API",
     "orgPatchesLabel": "Organisasi tambalan",
     "sourcesPatchesLabel": "Sumber tambalan",
     "contributorsLabel": "Kontributor",

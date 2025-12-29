@@ -1,6 +1,7 @@
 name: Ping Discord on release
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
 

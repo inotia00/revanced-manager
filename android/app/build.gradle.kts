@@ -89,7 +89,12 @@ android {
 
         resources {
             excludes.add("/prebuilt/**")
+            pickFirsts += setOf("META-INF/versions/9/OSGI-INF/MANIFEST.MF")
         }
+    }
+
+    configurations.all {
+        exclude(group = "xmlpull", module = "xmlpull")
     }
 }
 
